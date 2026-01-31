@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 28" width="64" height="28">
+  <style>
+    .logo-text { font-family: 'IBM Plex Serif', Georgia, serif; font-weight: 600; }
+  </style>
+  <text x="0" y="24" class="logo-text" fill="#1A365D" font-size="28">KRS</text>
+</svg>
