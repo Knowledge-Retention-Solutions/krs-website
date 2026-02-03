@@ -344,36 +344,77 @@
   // ==========================================================================
 
   function initContactModal() {
-    const openBtnPhone = document.getElementById('openContactModal');
-    const openBtnEmail = document.getElementById('openContactModalEmail');
-    const modal = document.getElementById('contactModal');
+    // All contact modals
+    var modals = {
+      contact: document.getElementById('contactModal'),
+      marco: document.getElementById('marcoModal'),
+      eugen: document.getElementById('eugenModal'),
+      andreas: document.getElementById('andreasModal')
+    };
 
-    if (!modal) return;
+    // Button-to-modal mapping
+    var triggers = [
+      { btn: 'openContactModal', modal: 'contact' },
+      { btn: 'openContactModalEmail', modal: 'contact' },
+      { btn: 'openMarcoModal', modal: 'marco' },
+      { btn: 'openEugenModal', modal: 'eugen' },
+      { btn: 'openAndreasModal', modal: 'andreas' }
+    ];
 
-    const closeBtn = modal.querySelector('.contact-modal__close');
-    const backdrop = modal.querySelector('.contact-modal__backdrop');
-
-    function openModal() {
-      modal.classList.add('is-open');
-      document.body.style.overflow = 'hidden';
+    function openModal(modal) {
+      if (modal) {
+        modal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
     }
 
-    function closeModal() {
-      modal.classList.remove('is-open');
-      document.body.style.overflow = '';
+    function closeModal(modal) {
+      if (modal) {
+        modal.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
     }
 
-    // Both buttons open the same modal
-    if (openBtnPhone) openBtnPhone.addEventListener('click', openModal);
-    if (openBtnEmail) openBtnEmail.addEventListener('click', openModal);
+    function closeAllModals() {
+      Object.values(modals).forEach(function(modal) {
+        if (modal) closeModal(modal);
+      });
+    }
 
-    closeBtn.addEventListener('click', closeModal);
-    backdrop.addEventListener('click', closeModal);
+    // Set up triggers
+    triggers.forEach(function(trigger) {
+      var btn = document.getElementById(trigger.btn);
+      var modal = modals[trigger.modal];
+      if (btn && modal) {
+        btn.addEventListener('click', function() {
+          openModal(modal);
+        });
+      }
+    });
+
+    // Set up close buttons and backdrops for all modals
+    Object.values(modals).forEach(function(modal) {
+      if (!modal) return;
+
+      var closeBtn = modal.querySelector('.contact-modal__close');
+      var backdrop = modal.querySelector('.contact-modal__backdrop');
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+          closeModal(modal);
+        });
+      }
+      if (backdrop) {
+        backdrop.addEventListener('click', function() {
+          closeModal(modal);
+        });
+      }
+    });
 
     // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('is-open')) {
-        closeModal();
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeAllModals();
       }
     });
   }

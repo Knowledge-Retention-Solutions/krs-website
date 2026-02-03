@@ -1098,6 +1098,23 @@ body.modal-open {
   opacity: 0.8;
 }
 
+/* Button variant for team members with modals */
+.team-member__btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: inherit;
+  width: 100%;
+}
+
+.team-member__btn:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
 .team-member__link .team-member__avatar {
   transition: transform var(--transition-default);
 }
