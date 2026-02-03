@@ -4,6 +4,50 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
+   0. Local Fonts (DSGVO-compliant, no external requests)
+   -------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/inter-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/inter-medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/inter-semibold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Serif';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/ibmplexserif-medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Serif';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/ibmplexserif-semibold.woff2') format('woff2');
+}
+
+/* --------------------------------------------------------------------------
    1. Design Tokens (CSS Custom Properties)
    -------------------------------------------------------------------------- */
 
@@ -632,13 +676,13 @@ body.modal-open {
 
 .section-header__tag {
   display: inline-block;
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-sm) var(--space-lg);
   background-color: var(--krs-sandstein);
   color: var(--krs-nachtblau);
-  font-size: var(--text-small);
+  font-size: var(--text-body);
   font-weight: var(--weight-semibold);
   border-radius: var(--radius-full);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
 }
 
 .section--dark .section-header__tag {
@@ -647,7 +691,8 @@ body.modal-open {
 }
 
 .section-header__title {
-  margin-bottom: var(--space-md);
+  font-size: var(--text-h1);
+  margin-bottom: var(--space-lg);
 }
 
 .section-header__subtitle {

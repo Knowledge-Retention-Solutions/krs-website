@@ -83,10 +83,10 @@
       var icon = menuToggle.querySelector('svg');
       if (isOpen) {
         icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />';
-        menuToggle.setAttribute('aria-label', 'Menu schliessen');
+        menuToggle.setAttribute('aria-label', 'Menü schließen');
       } else {
         icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />';
-        menuToggle.setAttribute('aria-label', 'Menu oeffnen');
+        menuToggle.setAttribute('aria-label', 'Menü öffnen');
       }
     });
 
@@ -98,7 +98,7 @@
 
         var icon = menuToggle.querySelector('svg');
         icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />';
-        menuToggle.setAttribute('aria-label', 'Menu oeffnen');
+        menuToggle.setAttribute('aria-label', 'Menü öffnen');
       });
     });
 
@@ -211,7 +211,7 @@
       }, 1500);
 
       scrollIndicator.addEventListener('click', function() {
-        var nextSection = document.querySelector('#problem');
+        var nextSection = document.querySelector('#loesung');
         if (nextSection) {
           nextSection.scrollIntoView({ behavior: 'smooth' });
         }
@@ -294,13 +294,15 @@
     var modalContent = modalOverlay.querySelector('.modal__content');
     var closeBtn = modalOverlay.querySelector('.modal__close');
 
-    // Open modal on card toggle click
-    document.querySelectorAll('.card--has-modal .card__toggle').forEach(function(btn) {
+    // Open modal on card toggle click (both .card and .process-card)
+    document.querySelectorAll('.card--has-modal .card__toggle, .process-card.card--has-modal .card__toggle').forEach(function(btn) {
       btn.addEventListener('click', function() {
-        var card = btn.closest('.card--has-modal');
-        modalTitle.textContent = card.dataset.modalTitle;
-        modalContent.innerHTML = card.dataset.modalContent;
-        openModal();
+        var card = btn.closest('.card--has-modal') || btn.closest('.process-card');
+        if (card) {
+          modalTitle.textContent = card.dataset.modalTitle;
+          modalContent.innerHTML = card.dataset.modalContent;
+          openModal();
+        }
       });
     });
 
