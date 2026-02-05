@@ -2203,9 +2203,11 @@ body.modal-open {
 
 .lang-switch {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: var(--space-xs);
+  gap: 0;
   margin-left: auto;
+  line-height: 1.1;
 }
 
 .lang-switch__link {
@@ -2215,7 +2217,7 @@ body.modal-open {
   font-weight: var(--weight-medium);
   opacity: 0.7;
   transition: opacity 0.2s ease;
-  padding: var(--space-xs) var(--space-sm);
+  padding: 2px var(--space-sm);
 }
 
 .lang-switch__link:hover {
@@ -2228,9 +2230,7 @@ body.modal-open {
 }
 
 .lang-switch__divider {
-  color: var(--krs-sandstein);
-  opacity: 0.4;
-  font-size: var(--text-small);
+  display: none;
 }
 
 /* Topbar lang switch - lighter colors */
