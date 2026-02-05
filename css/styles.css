@@ -729,6 +729,7 @@ body.modal-open {
 }
 
 .topbar__container {
+  position: relative;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -807,6 +808,7 @@ body.modal-open {
 }
 
 .nav__container {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -889,14 +891,12 @@ body.modal-open {
   padding: var(--space-lg);
   z-index: 999;
   transform: translateY(-100%);
-  opacity: 0;
   visibility: hidden;
-  transition: transform var(--transition-slow), opacity var(--transition-slow), visibility var(--transition-slow);
+  transition: transform var(--transition-slow), visibility var(--transition-slow);
 }
 
 .nav__mobile.is-open {
   transform: translateY(0);
-  opacity: 1;
   visibility: visible;
 }
 
@@ -2193,6 +2193,79 @@ body.modal-open {
   .stat-with-source::before {
     max-width: 280px;
     font-size: 0.85rem;
+    padding: var(--space-sm) var(--space-md);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   20. Language Switcher
+   -------------------------------------------------------------------------- */
+
+.lang-switch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin-left: auto;
+  line-height: 1.1;
+}
+
+.lang-switch__link {
+  color: var(--krs-sandstein);
+  text-decoration: none;
+  font-size: var(--text-small);
+  font-weight: var(--weight-medium);
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  padding: 2px var(--space-sm);
+}
+
+.lang-switch__link:hover {
+  opacity: 1;
+}
+
+.lang-switch__link--active {
+  opacity: 1;
+  font-weight: var(--weight-semibold);
+}
+
+.lang-switch__divider {
+  display: none;
+}
+
+/* Topbar lang switch - hidden (Claim needs full width) */
+.topbar .lang-switch {
+  display: none;
+}
+
+/* Nav lang switch - visible after Contact button */
+.nav .lang-switch:not(.nav__mobile .lang-switch) {
+  position: static;
+  margin-left: var(--space-md);
+}
+
+.nav .lang-switch__link {
+  color: var(--krs-anthrazit);
+}
+
+/* Mobile: in nav menu */
+@media (max-width: 768px) {
+  .topbar .lang-switch,
+  .nav .lang-switch:not(.nav__mobile .lang-switch) {
+    display: none;
+  }
+
+  .nav__mobile .lang-switch {
+    display: flex;
+    justify-content: center;
+    padding: var(--space-md) 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: var(--space-md);
+  }
+
+  .nav__mobile .lang-switch__link {
+    color: var(--krs-anthrazit);
+    font-size: var(--text-body);
     padding: var(--space-sm) var(--space-md);
   }
 }
