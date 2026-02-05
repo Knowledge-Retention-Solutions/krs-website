@@ -833,6 +833,7 @@ body.modal-open {
   display: none;
   align-items: center;
   gap: var(--space-xl);
+  margin-left: auto;
 }
 
 @media (min-width: 768px) {
@@ -886,8 +887,7 @@ body.modal-open {
   top: var(--nav-height);
   left: 0;
   right: 0;
-  bottom: 0;
-  background-color: var(--krs-weiss);
+  background: #FFFFFF;
   padding: var(--space-lg);
   z-index: 999;
   transform: translateY(-100%);
