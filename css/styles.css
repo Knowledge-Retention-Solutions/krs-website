@@ -2196,3 +2196,79 @@ body.modal-open {
     padding: var(--space-sm) var(--space-md);
   }
 }
+
+/* --------------------------------------------------------------------------
+   20. Language Switcher
+   -------------------------------------------------------------------------- */
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-left: auto;
+}
+
+.lang-switch__link {
+  color: var(--krs-sandstein);
+  text-decoration: none;
+  font-size: var(--text-small);
+  font-weight: var(--weight-medium);
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  padding: var(--space-xs) var(--space-sm);
+}
+
+.lang-switch__link:hover {
+  opacity: 1;
+}
+
+.lang-switch__link--active {
+  opacity: 1;
+  font-weight: var(--weight-semibold);
+}
+
+.lang-switch__divider {
+  color: var(--krs-sandstein);
+  opacity: 0.4;
+  font-size: var(--text-small);
+}
+
+/* Topbar lang switch - lighter colors */
+.topbar .lang-switch__link {
+  color: var(--krs-sandstein);
+}
+
+.topbar .lang-switch__divider {
+  color: var(--krs-sandstein);
+}
+
+/* Nav lang switch - when scrolled */
+.nav .lang-switch__link {
+  color: var(--krs-anthrazit);
+}
+
+.nav .lang-switch__divider {
+  color: var(--krs-anthrazit);
+}
+
+/* Mobile: in nav menu */
+@media (max-width: 768px) {
+  .topbar .lang-switch,
+  .nav .lang-switch:not(.nav__mobile .lang-switch) {
+    display: none;
+  }
+
+  .nav__mobile .lang-switch {
+    display: flex;
+    justify-content: center;
+    padding: var(--space-md) 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: var(--space-md);
+  }
+
+  .nav__mobile .lang-switch__link {
+    color: var(--krs-anthrazit);
+    font-size: var(--text-body);
+    padding: var(--space-sm) var(--space-md);
+  }
+}
