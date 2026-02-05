@@ -4,14 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KRS - Knowledge Retention Solutions | Wissen sichern. Wissen skalieren.</title>
-  <meta name="description" content="Wir extrahieren Expertenwissen systematisch durch Interviews und KI - bevor es mit der Rente verschwindet. In Wochen, nicht Jahren.">
+  <meta name="description" content="Wir extrahieren Expertenwissen systematisch durch Interviews und KI - bevor es mit der Rente verschwindet. Erste Ergebnisse in 3–7 Wochen.">
 
   <!-- Open Graph -->
   <meta property="og:title" content="KRS - Knowledge Retention Solutions">
   <meta property="og:description" content="Wissen sichern. Wissen skalieren. Wir machen Erfahrungswissen teilbar.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.knowledge-retention-solutions.de">
-  <meta property="og:image" content="images/og-image.jpg">
+  <meta property="og:image" content="https://www.knowledge-retention-solutions.de/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="KRS - Knowledge Retention Solutions">
+  <meta name="twitter:description" content="Wissen sichern. Wissen skalieren. Wir machen Erfahrungswissen teilbar.">
+  <meta name="twitter:image" content="https://www.knowledge-retention-solutions.de/images/og-image.jpg">
+
+  <!-- Security -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="images/krs-logo.svg">
@@ -29,7 +41,7 @@
   <!-- ========== Top Bar (immer sichtbar wenn ganz oben) ========== -->
   <header class="topbar" id="topbar">
     <div class="topbar__container">
-      <a href="#" class="topbar__logo">
+      <a href="./" class="topbar__logo">
         <img src="images/krs-logo.svg" alt="KRS Logo" width="64" height="28">
         <span class="topbar__company">Knowledge Retention Solutions</span>
       </a>
@@ -44,7 +56,7 @@
   <!-- ========== Navigation (erscheint beim Scrollen) ========== -->
   <nav class="nav nav--hidden" role="navigation" aria-label="Hauptnavigation">
     <div class="nav__container">
-      <a href="#" class="nav__logo">
+      <a href="./" class="nav__logo">
         <img src="images/krs-logo.svg" alt="KRS Logo" width="64" height="28">
       </a>
 
@@ -69,7 +81,7 @@
 
     <!-- Mobile Menu -->
     <div class="nav__mobile" id="mobile-menu" aria-hidden="true">
-      <a href="#loesung" class="nav__mobile-link">Unsere Lösung</a>
+      <a href="#loesung" class="nav__mobile-link">Lösung</a>
       <a href="#ablauf" class="nav__mobile-link">Ablauf</a>
       <a href="#team" class="nav__mobile-link">Team</a>
       <a href="#kontakt" class="btn btn--primary nav__mobile-cta">Gespräch vereinbaren</a>
@@ -90,7 +102,7 @@
             Was passiert, wenn diese Köpfe gehen?
           </h1>
           <p class="hero__subtitle">
-            Wir sichern Expertenwissen – bevor es zu spät ist. Mit systematischen Interviews, geführt von Mensch und KI, die Ihre Experten nur wenige Stunden kosten und Mehrwert in wenigen Wochen liefern.
+            Wir sichern Expertenwissen – bevor es zu spät ist. Mit systematischen Interviews, geführt von Mensch und KI, die Ihre Experten nur wenige Stunden kosten und erste Ergebnisse typischerweise innerhalb von 3–7 Wochen liefern.
           </p>
           <div class="hero__cta">
             <a href="#kontakt" class="btn btn--primary">Erstgespräch vereinbaren</a>
@@ -150,8 +162,8 @@
 
             <!-- Benefit 2: Qualitaet -->
             <div class="solution-hero__benefit">
-              <span class="solution-hero__number stat-with-source" data-tooltip="Strukturierte Wissensextraktion erfasst ca. doppelt so viel wie Selbstdokumentation." data-source="Tofel-Grehl & Feldon 2013; Chao & Salvendy 1994">2x</span>
-              <span class="solution-hero__label">so viel Wissen erfasst</span>
+              <span class="solution-hero__number stat-with-source" data-tooltip="Laut Studien erfasst strukturierte Wissensextraktion ca. doppelt so viel wie Selbstdokumentation." data-source="Tofel-Grehl & Feldon 2013; Chao & Salvendy 1994">2x</span>
+              <span class="solution-hero__label">so viel Wissen erfasst*</span>
               <span class="solution-hero__contrast">statt nur <span class="stat-with-source" data-tooltip="Experten erfassen bei freier Selbstdokumentation nur ~30% der kritischen Schritte (70%-Regel)." data-source="Sullivan et al. 2008; Clark et al. 2012">~30%</span> bei Selbstdokumentation</span>
             </div>
           </div>
@@ -329,7 +341,7 @@
         <div class="grid grid--3">
           <div class="team-member reveal">
             <button type="button" class="team-member__link team-member__btn" id="openMarcoModal">
-              <img src="images/team-marco.jpg" alt="Marco Karber" class="team-member__photo">
+              <img src="images/team-marco.jpg" alt="Marco Karber" class="team-member__photo" loading="lazy">
               <h3 class="team-member__name">Marco Karber</h3>
             </button>
             <p class="team-member__role">Geschäftsführer</p>
@@ -339,7 +351,7 @@
           </div>
           <div class="team-member reveal reveal-delay-1">
             <button type="button" class="team-member__link team-member__btn" id="openEugenModal">
-              <img src="images/team-eugen.jpg" alt="Dr. Eugen Neu" class="team-member__photo">
+              <img src="images/team-eugen.jpg" alt="Dr. Eugen Neu" class="team-member__photo" loading="lazy">
               <h3 class="team-member__name">Dr. Eugen Neu</h3>
             </button>
             <p class="team-member__role">Geschäftsführer</p>
@@ -349,7 +361,7 @@
           </div>
           <div class="team-member reveal reveal-delay-2">
             <button type="button" class="team-member__link team-member__btn" id="openAndreasModal">
-              <img src="images/team-andreas.jpg" alt="Andreas Kupke" class="team-member__photo">
+              <img src="images/team-andreas.jpg" alt="Andreas Kupke" class="team-member__photo" loading="lazy">
               <h3 class="team-member__name">Andreas Kupke</h3>
             </button>
             <p class="team-member__role">Gesellschafter</p>
@@ -420,12 +432,12 @@
                 <!-- TODO: Marcos Telefonnummer eintragen -->
                 <span>+49 XXX XXXXXXX</span>
               </a>
-              <a href="mailto:marco.karber@krs-gmbh.de" class="contact-modal__link">
+              <a href="#" data-user="marco.karber" data-domain="krs-gmbh.de" class="contact-modal__link">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="2" y="4" width="20" height="16" rx="2"></rect>
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                 </svg>
-                <span>marco.karber@krs-gmbh.de</span>
+                <span>marco.karber[at]krs-gmbh.de</span>
               </a>
               <a href="https://www.linkedin.com/in/marco-karber-a73207148/" target="_blank" rel="noopener" class="contact-modal__link">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -463,12 +475,12 @@
                 <!-- TODO: Marcos Telefonnummer eintragen -->
                 <span>+49 XXX XXXXXXX</span>
               </a>
-              <a href="mailto:marco.karber@krs-gmbh.de" class="contact-modal__link">
+              <a href="#" data-user="marco.karber" data-domain="krs-gmbh.de" class="contact-modal__link">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="2" y="4" width="20" height="16" rx="2"></rect>
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                 </svg>
-                <span>marco.karber@krs-gmbh.de</span>
+                <span>marco.karber[at]krs-gmbh.de</span>
               </a>
               <a href="https://www.linkedin.com/in/marco-karber-a73207148/" target="_blank" rel="noopener" class="contact-modal__link">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -506,12 +518,12 @@
                 <!-- TODO: Eugens Telefonnummer eintragen -->
                 <span>+49 XXX XXXXXXX</span>
               </a>
-              <a href="mailto:eugen.neu@krs-gmbh.de" class="contact-modal__link">
+              <a href="#" data-user="eugen.neu" data-domain="krs-gmbh.de" class="contact-modal__link">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="2" y="4" width="20" height="16" rx="2"></rect>
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                 </svg>
-                <span>eugen.neu@krs-gmbh.de</span>
+                <span>eugen.neu[at]krs-gmbh.de</span>
               </a>
               <a href="https://www.linkedin.com/in/eugen-neu/" target="_blank" rel="noopener" class="contact-modal__link">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">

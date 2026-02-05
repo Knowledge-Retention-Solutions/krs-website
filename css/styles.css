@@ -998,39 +998,6 @@ body.modal-open {
 }
 
 /* --------------------------------------------------------------------------
-   8. Process Steps
-   -------------------------------------------------------------------------- */
-
-.process-step {
-  text-align: center;
-  padding: var(--space-lg);
-}
-
-.process-step__number {
-  width: 60px;
-  height: 60px;
-  background-color: var(--krs-nachtblau);
-  color: var(--color-text-on-dark);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-headline);
-  font-size: 1.5rem;
-  font-weight: var(--weight-bold);
-  margin: 0 auto var(--space-md);
-}
-
-.process-step__title {
-  margin-bottom: var(--space-sm);
-}
-
-.process-step__text {
-  color: var(--color-text-secondary);
-  font-size: var(--text-body);
-}
-
-/* --------------------------------------------------------------------------
    9. Team Section
    -------------------------------------------------------------------------- */
 
@@ -1308,7 +1275,7 @@ body.modal-open {
   font-family: var(--font-headline);
   font-size: var(--text-h3);
   font-weight: var(--weight-semibold);
-  color: #1A365D !important;
+  color: var(--krs-nachtblau);
   margin: 0 0 var(--space-xs);
   line-height: 1.2;
 }
@@ -1681,88 +1648,7 @@ body.modal-open {
 }
 
 /* --------------------------------------------------------------------------
-   17. Process Timeline
-   -------------------------------------------------------------------------- */
-
-.process-timeline {
-  position: relative;
-  margin-bottom: var(--space-2xl);
-}
-
-.timeline-weeks {
-  display: flex;
-  justify-content: center;
-  gap: var(--space-xs);
-  margin-bottom: var(--space-lg);
-}
-
-.timeline-week {
-  width: 40px;
-  height: 8px;
-  background-color: var(--krs-sandstein);
-  border-radius: var(--radius-sm);
-  position: relative;
-  overflow: hidden;
-}
-
-.timeline-week::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, var(--krs-nachtblau) 0%, var(--krs-bernstein) 100%);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease-out;
-}
-
-.timeline-week.is-filled::after {
-  transform: scaleX(1);
-}
-
-.timeline-week:nth-child(1).is-filled::after { transition-delay: 0ms; }
-.timeline-week:nth-child(2).is-filled::after { transition-delay: 100ms; }
-.timeline-week:nth-child(3).is-filled::after { transition-delay: 200ms; }
-.timeline-week:nth-child(4).is-filled::after { transition-delay: 300ms; }
-.timeline-week:nth-child(5).is-filled::after { transition-delay: 400ms; }
-.timeline-week:nth-child(6).is-filled::after { transition-delay: 500ms; }
-.timeline-week:nth-child(7).is-filled::after { transition-delay: 600ms; }
-.timeline-week:nth-child(8).is-filled::after { transition-delay: 700ms; }
-
-.timeline-labels {
-  display: flex;
-  justify-content: space-between;
-  max-width: 400px;
-  margin: 0 auto;
-  font-size: var(--text-small);
-  color: var(--color-text-secondary);
-}
-
-.process-grid {
-  position: relative;
-}
-
-.process-step__phase {
-  font-size: var(--text-small);
-  color: var(--krs-bernstein);
-  font-weight: var(--weight-semibold);
-  margin-top: var(--space-sm);
-}
-
-.process-step.is-visible .process-step__number {
-  animation: pulse 2s ease-in-out;
-}
-
-.process-step__number {
-  transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
-}
-
-.process-step:hover .process-step__number {
-  transform: scale(1.1);
-  box-shadow: 0 0 0 8px rgba(26, 54, 93, 0.15);
-}
-
-/* --------------------------------------------------------------------------
-   Process Flow (neue Ablauf-Sektion)
+   Process Flow (Ablauf-Sektion)
    -------------------------------------------------------------------------- */
 
 .process-flow {
@@ -2080,32 +1966,6 @@ body.modal-open {
   color: var(--krs-weiss);
 }
 
-/* Legacy classes (can be removed later) */
-.solution-hero__comparison {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-xl);
-  flex-wrap: wrap;
-}
-
-.solution-hero__item {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-}
-
-.solution-hero__item--muted .solution-hero__number {
-  color: var(--color-text-on-dark);
-  opacity: 0.5;
-}
-
-.solution-hero__vs {
-  font-size: var(--text-body);
-  color: var(--color-text-on-dark);
-  opacity: 0.5;
-  font-style: italic;
-}
 
 .solution-hero__claim {
   margin-top: var(--space-lg);

@@ -295,13 +295,25 @@
     var modalContent = modalOverlay.querySelector('.modal__content');
     var closeBtn = modalOverlay.querySelector('.modal__close');
 
+    // Safely set modal content from data attributes using DOMParser
+    function setModalContent(container, htmlString) {
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(htmlString, 'text/html');
+      // Remove any script tags for safety
+      doc.querySelectorAll('script').forEach(function(s) { s.remove(); });
+      container.textContent = '';
+      while (doc.body.firstChild) {
+        container.appendChild(doc.body.firstChild);
+      }
+    }
+
     // Open modal on card toggle click (both .card and .process-card)
     document.querySelectorAll('.card--has-modal .card__toggle, .process-card.card--has-modal .card__toggle').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var card = btn.closest('.card--has-modal') || btn.closest('.process-card');
         if (card) {
           modalTitle.textContent = card.dataset.modalTitle;
-          modalContent.innerHTML = card.dataset.modalContent;
+          setModalContent(modalContent, card.dataset.modalContent);
           openModal();
         }
       });
@@ -420,6 +432,23 @@
     });
   }
 
+  // ==========================================================================
+  // Email Obfuscation
+  // ==========================================================================
+
+  function initEmailObfuscation() {
+    document.querySelectorAll('a[data-user][data-domain]').forEach(function(link) {
+      var email = link.dataset.user + '@' + link.dataset.domain;
+      link.href = 'mailto:' + email;
+      var span = link.querySelector('span');
+      if (span) {
+        span.textContent = email;
+      } else if (link.textContent.indexOf('[at]') !== -1 || link.textContent.trim() === '') {
+        link.textContent = email;
+      }
+    });
+  }
+
   // Initialize
   // ==========================================================================
 
@@ -431,6 +460,7 @@
     initScrollNav();
     initCardModals();
     initContactModal();
+    initEmailObfuscation();
   }
 
   if (document.readyState === 'loading') {
