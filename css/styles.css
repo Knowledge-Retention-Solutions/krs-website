@@ -891,14 +891,12 @@ body.modal-open {
   padding: var(--space-lg);
   z-index: 999;
   transform: translateY(-100%);
-  opacity: 0;
   visibility: hidden;
-  transition: transform var(--transition-slow), opacity var(--transition-slow), visibility var(--transition-slow);
+  transition: transform var(--transition-slow), visibility var(--transition-slow);
 }
 
 .nav__mobile.is-open {
   transform: translateY(0);
-  opacity: 1;
   visibility: visible;
 }
 
@@ -2235,25 +2233,15 @@ body.modal-open {
   display: none;
 }
 
-/* Topbar lang switch - absolute positioned, lighter colors */
+/* Topbar lang switch - hidden (Claim needs full width) */
 .topbar .lang-switch {
-  position: absolute;
-  right: var(--space-lg);
-  bottom: 16px;
-  margin-left: 0;
+  display: none;
 }
 
-.topbar .lang-switch__link {
-  color: var(--krs-sandstein);
-}
-
-/* Nav lang switch - absolute positioned when scrolled */
+/* Nav lang switch - visible after Contact button */
 .nav .lang-switch:not(.nav__mobile .lang-switch) {
-  position: absolute;
-  right: var(--space-lg);
-  top: 50%;
-  transform: translateY(-50%);
-  margin-left: 0;
+  position: static;
+  margin-left: var(--space-md);
 }
 
 .nav .lang-switch__link {
