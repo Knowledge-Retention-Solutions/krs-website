@@ -211,7 +211,8 @@
       }, 1500);
 
       scrollIndicator.addEventListener('click', function() {
-        var nextSection = document.querySelector('#loesung');
+        // Support both German (#loesung) and English (#solution) pages
+        var nextSection = document.querySelector('#loesung') || document.querySelector('#solution');
         if (nextSection) {
           nextSection.scrollIntoView({ behavior: 'smooth' });
         }
