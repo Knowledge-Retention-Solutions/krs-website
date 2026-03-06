@@ -359,7 +359,6 @@
   function initContactModal() {
     // All contact modals
     var modals = {
-      contact: document.getElementById('contactModal'),
       marco: document.getElementById('marcoModal'),
       eugen: document.getElementById('eugenModal'),
       andreas: document.getElementById('andreasModal')
@@ -367,8 +366,6 @@
 
     // Button-to-modal mapping
     var triggers = [
-      { btn: 'openContactModal', modal: 'contact' },
-      { btn: 'openContactModalEmail', modal: 'contact' },
       { btn: 'openMarcoModal', modal: 'marco' },
       { btn: 'openEugenModal', modal: 'eugen' },
       { btn: 'openAndreasModal', modal: 'andreas' }
