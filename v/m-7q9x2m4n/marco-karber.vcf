@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Karber;Marco;;;
+FN:Marco Karber
+ORG:Knowledge Retention Solutions GmbH
+TITLE:Geschäftsführer & Co-Founder
+TEL;TYPE=CELL,VOICE:+4915155595961
+EMAIL;TYPE=WORK,INTERNET:marco.karber@krs-gmbh.de
+ADR;TYPE=WORK:;;An der alten Tuchfabrik 112;Aachen;;52078;Deutschland
+URL;TYPE=WORK:https://www.knowledge-retention-solutions.de
+URL;TYPE=OTHER:https://www.linkedin.com/in/marco-karber-a73207148/
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/marco-karber-a73207148/
+NOTE:Wissen sichern. Wissen skalieren.
+REV:20260420T210000Z
+END:VCARD
