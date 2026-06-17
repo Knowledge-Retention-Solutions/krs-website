@@ -106,43 +106,27 @@
     link.setAttribute('href', 'mailto:' + addr);
   });
 
-  /* ----- Stimmen-Carousel ----- */
+  /* ----- Stimmen-Carousel (statisch, manueller Wechsel ueber Punkte) ----- */
   var carousel = document.querySelector('[data-quote-carousel]');
   if (carousel) {
     var slides = Array.prototype.slice.call(carousel.querySelectorAll('[data-quote-slide]'));
     var dots = Array.prototype.slice.call(carousel.querySelectorAll('[data-quote-dot]'));
-    var current = 0;
-    var timer = null;
-    var INTERVAL = 7000;
 
     function go(i) {
-      current = (i + slides.length) % slides.length;
+      var current = (i + slides.length) % slides.length;
       slides.forEach(function (s, n) { s.classList.toggle('is-active', n === current); });
       dots.forEach(function (d, n) {
         d.classList.toggle('is-active', n === current);
         d.setAttribute('aria-selected', n === current ? 'true' : 'false');
       });
     }
-    function stop() {
-      if (timer) { clearInterval(timer); timer = null; }
-    }
-    function restart() {
-      stop();
-      if (prefersReduced) return; /* keine Auto-Rotation bei reduzierter Bewegung */
-      timer = setInterval(function () { go(current + 1); }, INTERVAL);
-    }
 
+    /* Keine Auto-Rotation: die erste Stimme (Driescher) bleibt sichtbar,
+       bis der Nutzer ueber die Punkte aktiv auf eine andere wechselt. */
     dots.forEach(function (d, n) {
-      d.addEventListener('click', function () { go(n); restart(); });
+      d.addEventListener('click', function () { go(n); });
     });
 
-    /* Auto-Rotation bei Hover und Tastatur-Fokus pausieren */
-    carousel.addEventListener('mouseenter', stop);
-    carousel.addEventListener('mouseleave', restart);
-    carousel.addEventListener('focusin', stop);
-    carousel.addEventListener('focusout', restart);
-
     go(0);
-    restart();
   }
 })();
