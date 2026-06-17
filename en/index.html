@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KRS - Knowledge Retention Solutions | Capture Knowledge. Scale Expertise.</title>
-  <meta name="description" content="We systematically extract expert knowledge through interviews and AI - before it leaves with retirement. Initial results in 3–7 weeks.">
+  <title>KRS – Knowledge Retention Solutions | Capture Knowledge. Scale Expertise.</title>
+  <meta name="description" content="We systematically extract expert knowledge through interviews and AI, before it leaves with retirement. Initial results in 3–7 weeks.">
 
   <!-- Open Graph -->
   <meta property="og:title" content="KRS - Knowledge Retention Solutions">
@@ -29,503 +29,412 @@
   <link rel="icon" type="image/svg+xml" href="../images/krs-logo.svg">
 
   <!-- Language alternates -->
+  <link rel="canonical" href="https://www.knowledge-retention-solutions.de/en/">
   <link rel="alternate" hreflang="de" href="https://www.knowledge-retention-solutions.de/">
   <link rel="alternate" hreflang="en" href="https://www.knowledge-retention-solutions.de/en/">
   <link rel="alternate" hreflang="x-default" href="https://www.knowledge-retention-solutions.de/">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/redesign.css">
 </head>
-<body>
+<body data-motion="an">
 
-  <!-- ========== Top Bar (visible when at top) ========== -->
-  <header class="topbar" id="topbar">
-    <div class="topbar__container">
-      <a href="./" class="topbar__logo">
-        <img src="../images/krs-logo.svg" alt="KRS Logo" width="64" height="28">
-        <span class="topbar__company">Knowledge Retention Solutions</span>
+  <!-- ========== Navigation ========== -->
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="./" class="nav__logo" aria-label="KRS – Knowledge Retention Solutions">
+        <span class="nav__wordmark">KRS</span>
       </a>
-      <span class="topbar__claim">Capture Knowledge. Scale Expertise.</span>
-      <div class="lang-switch">
-        <a href="../" class="lang-switch__link" hreflang="de">DE</a>
-        <a href="./" class="lang-switch__link lang-switch__link--active" hreflang="en">EN</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- ========== Navigation (appears on scroll) ========== -->
-  <nav class="nav nav--hidden" role="navigation" aria-label="Main navigation">
-    <div class="nav__container">
-      <a href="./" class="nav__logo">
-        <img src="../images/krs-logo.svg" alt="KRS Logo" width="64" height="28">
-      </a>
-
-      <ul class="nav__menu">
+      <span class="nav__claim">Capture Knowledge. Scale Expertise.</span>
+      <ul class="nav__menu" id="navMenu">
         <li><a href="#solution" class="nav__link">Solution</a></li>
         <li><a href="#process" class="nav__link">Process</a></li>
+        <li><a href="#voices" class="nav__link">Voices</a></li>
         <li><a href="#team" class="nav__link">Team</a></li>
         <li><a href="#contact" class="btn btn--primary nav__cta">Contact</a></li>
+        <li>
+          <div class="lang-switch">
+            <a href="../" hreflang="de">DE</a>
+            <a href="./" class="is-active" hreflang="en">EN</a>
+          </div>
+        </li>
       </ul>
-
-      <div class="lang-switch">
-        <a href="../" class="lang-switch__link" hreflang="de">DE</a>
-        <a href="./" class="lang-switch__link lang-switch__link--active" hreflang="en">EN</a>
-      </div>
-
-      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div class="nav__mobile" id="mobile-menu" aria-hidden="true">
-      <a href="#solution" class="nav__mobile-link">Solution</a>
-      <a href="#process" class="nav__mobile-link">Process</a>
-      <a href="#team" class="nav__mobile-link">Team</a>
-      <a href="#contact" class="btn btn--primary nav__mobile-cta">Get in Touch</a>
-      <div class="lang-switch">
-        <a href="../" class="lang-switch__link" hreflang="de">DE</a>
-        <a href="./" class="lang-switch__link lang-switch__link--active" hreflang="en">EN</a>
-      </div>
     </div>
   </nav>
 
   <main>
-    <!-- ========== Hero Section ========== -->
-    <section class="hero" id="hero">
-      <div class="container">
-        <div class="hero__content">
-          <h1 class="hero__title">
-            <span class="hero__title-highlight">Over 60%</span> of critical knowledge exists only in people's heads.<br>
-            What happens when they leave?
-          </h1>
-          <p class="hero__subtitle">
-            We capture expert knowledge – before it's too late. With systematic interviews, guided by humans and AI, that cost your experts just a few hours and deliver initial results typically within 3–7 weeks.
-          </p>
-          <div class="hero__cta">
-            <a href="#contact" class="btn btn--primary">Get in Touch</a>
-            <a href="#solution" class="btn btn--secondary">Learn More</a>
-          </div>
-
-          <!-- Stats Preview -->
-          <div class="hero__stats">
-            <div class="hero__stat">
-              <div class="hero__stat-number stat-with-source" data-tooltip="In Germany alone, 13.4 million workers will reach retirement age by 2039 – about 31% of the workforce." data-source="German Federal Statistical Office, Microcensus 2024">13.4M</div>
-              <div class="hero__stat-label">employees retiring by 2039 (Germany)</div>
-            </div>
-            <div class="hero__stat">
-              <div class="hero__stat-number stat-with-source" data-tooltip="Over 60% of job-critical knowledge is based on experience and not documented." data-source="Fraunhofer IPK/IFF, ProWis Study 2008">>60%</div>
-              <div class="hero__stat-label">of knowledge undocumented</div>
-            </div>
-            <div class="hero__stat">
-              <div class="hero__stat-number stat-with-source" data-tooltip="42% of institutional knowledge is unique to a single individual." data-source="Panopto Workplace Knowledge Study 2018">42%</div>
-              <div class="hero__stat-label">of knowledge unique to one person</div>
-            </div>
-          </div>
+    <!-- ========== Hero: light & typographic ========== -->
+    <section class="hero hero--hell">
+      <div class="hero__fragment" aria-hidden="true">K</div>
+      <div class="hero__inner">
+        <span class="eyebrow hero__eyebrow">AI-powered knowledge retention for mid-sized companies</span>
+        <h1 class="hero__title">What happens when your most experienced employee <em>doesn't come in tomorrow?</em></h1>
+        <hr class="accent-line">
+        <p class="hero__subtitle">
+          Over 60&nbsp;% of critical knowledge exists only in people's heads. We secure it with systematic interviews, led by humans and AI. A few hours of effort for your experts, first results in 3–7&nbsp;weeks.
+        </p>
+        <div class="hero__cta">
+          <a href="#contact" class="btn btn--cta">Get in touch</a>
+          <a href="#solution" class="btn btn--ghost">How it works</a>
         </div>
-      </div>
-
-      <!-- Scroll Indicator -->
-      <div class="hero__scroll-indicator" aria-hidden="true">
-        <span>Learn more</span>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
       </div>
     </section>
 
-    <!-- ========== Solution Section ========== -->
+    <!-- ========== Stats band ========== -->
+    <section class="stats">
+      <div class="container">
+        <div class="stats__grid">
+          <div class="stat reveal">
+            <div class="stat__number" data-count="13.4M">13.4M</div>
+            <div class="stat__label">employees in Germany alone will reach retirement by 2039</div>
+            <span class="stat__source">German Federal Statistical Office, Microcensus 2024</span>
+          </div>
+          <div class="stat reveal reveal-d1">
+            <div class="stat__number" data-count="&gt;60%">&gt;60%</div>
+            <div class="stat__label">of experience-based work knowledge is undocumented</div>
+            <span class="stat__source">Fraunhofer IPK/IFF, ProWis Study 2008</span>
+          </div>
+          <div class="stat reveal reveal-d2">
+            <div class="stat__number" data-count="42%">42%</div>
+            <div class="stat__label">of knowledge is held by only one person</div>
+            <span class="stat__source">Panopto Workplace Knowledge Study 2018</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Solution ========== -->
     <section class="section" id="solution">
       <div class="container">
-        <div class="section-header">
-          <span class="section-header__tag">Our Solution</span>
+        <div class="section-head">
+          <span class="eyebrow">Our Solution</span>
+          <p class="solution__statement reveal">Systematic interviews. Led by humans. <strong>Powered by AI.</strong></p>
+          <p class="solution__lead reveal">We extract the knowledge from your experts' heads and merge it with your existing documentation. The result is a single, consolidated knowledge base instead of yet another silo.</p>
         </div>
 
-        <!-- Hero Highlight -->
-        <div class="solution-hero reveal">
-          <!-- Introduction -->
-          <p class="solution-hero__intro">
-            Systematic interviews.<br>
-            Led by humans. Powered by AI.
-          </p>
-
-          <!-- Two Benefits side by side -->
-          <div class="solution-hero__benefits">
-            <!-- Benefit 1: Time -->
-            <div class="solution-hero__benefit">
-              <span class="solution-hero__number">6-12 hours</span>
-              <span class="solution-hero__label">interview time</span>
-              <span class="solution-hero__contrast">instead of weeks of self-documentation</span>
-            </div>
-
-            <!-- Benefit 2: Quality -->
-            <div class="solution-hero__benefit">
-              <span class="solution-hero__number stat-with-source" data-tooltip="According to research, structured knowledge extraction captures approximately twice as much as self-documentation." data-source="Tofel-Grehl & Feldon 2013; Chao & Salvendy 1994">2x</span>
-              <span class="solution-hero__label">more knowledge captured*</span>
-              <span class="solution-hero__contrast">instead of only <span class="stat-with-source" data-tooltip="Experts capture only ~30% of critical steps during free self-documentation (70% rule)." data-source="Sullivan et al. 2008; Clark et al. 2012">~30%</span> with self-documentation</span>
-            </div>
+        <div class="solution__benefits">
+          <div class="benefit reveal">
+            <span class="benefit__number">6–12 hours</span>
+            <span class="benefit__label">of interview time for your experts</span>
+            <span class="benefit__contrast">instead of weeks of self-documentation</span>
+          </div>
+          <div class="benefit reveal reveal-d1">
+            <span class="benefit__number">Twice</span>
+            <span class="benefit__label">as much knowledge captured</span>
+            <span class="benefit__contrast">instead of only ~30&nbsp;% with self-documentation &middot; Tofel-Grehl &amp; Feldon 2013</span>
           </div>
         </div>
 
-        <!-- 3 Cards -->
-        <div class="grid grid--3">
-          <div class="card card--has-modal reveal"
-               data-modal-title="The Method"
-               data-modal-content="<div class='modal__highlight'><p class='modal__highlight-title'>Proven at:</p><ul class='modal__list'><li>NASA: Mission-Critical Knowledge Capture</li><li>US Military: Pilot and Military Technician Training</li><li>Medicine: Surgical Training Programs</li></ul></div><p>Historically, the effort for preparation, transcription, and post-processing was very high – ACTA was therefore only established for high-stakes applications.</p><p><strong>At KRS, we've evolved ACTA:</strong> Humans conduct the interviews, AI handles transcription and structuring. The result: Faster, more affordable – and through optimal division of labor, even better results.</p>">
-            <div class="card__header">
-              <h3 class="card__title">The Method</h3>
+        <div class="acc-grid">
+          <details class="acc reveal">
+            <summary>
+              <span class="acc__kicker">01</span>
+              <h3 class="acc__title">The Method</h3>
+              <svg class="acc__chevron" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+            </summary>
+            <div class="acc__teaser-wrap">
+              <p class="acc__teaser">Applied Cognitive Task Analysis (ACTA), the gold standard for tacit knowledge. Captures the &bdquo;how" and &bdquo;why" behind expert decisions.</p>
             </div>
-            <div class="card__body">
-              <p class="card__text">
-                Applied Cognitive Task Analysis (ACTA) – the gold standard for tacit knowledge. Captures the "how" and "why" behind expert decisions.
-              </p>
-              <button class="card__toggle">
-                <span class="card__toggle-text">Learn more</span>
-                <svg class="card__toggle-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
+            <div class="acc__body">
+              <div class="acc__hl">
+                <p class="acc__hl-title">Proven at</p>
+                <ul class="acc__list">
+                  <li>NASA: Mission-Critical Knowledge Capture</li>
+                  <li>US Military: training of pilots and military technicians</li>
+                  <li>Medicine: surgical training programs</li>
+                </ul>
+              </div>
+              <p>Historically, the effort for preparation, transcription, and post-processing was very high. ACTA therefore only became established for high-stakes applications.</p>
+              <p><strong>At KRS, we've evolved ACTA:</strong> humans conduct the interviews, AI handles transcription and structuring. The result: faster, more affordable, and through the optimal division of labor, even better.</p>
+              <p><strong>Integrating existing knowledge:</strong> we don't start from scratch. We read in your existing documentation and merge it with the knowledge from the interviews. In doing so, we surface contradictions between document and expert statement.</p>
+            </div>
+          </details>
+
+          <details class="acc reveal reveal-d1">
+            <summary>
+              <span class="acc__kicker">02</span>
+              <h3 class="acc__title">Humans + AI</h3>
+              <svg class="acc__chevron" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+            </summary>
+            <div class="acc__teaser-wrap">
+              <p class="acc__teaser">Our AI assistant analyzes interviews, identifies knowledge gaps, and generates targeted follow-up questions. Secure and GDPR-compliant.</p>
+            </div>
+            <div class="acc__body">
+              <div class="acc__hl">
+                <p class="acc__hl-title">The AI handles</p>
+                <ul class="acc__list">
+                  <li>Automatic transcription: no detail is lost</li>
+                  <li>Automatic structuring according to the ACTA schema</li>
+                  <li>Gap analysis between sessions: &bdquo;the reasoning is still missing here"</li>
+                </ul>
+              </div>
+              <p>The interviewer can focus fully on the expert. No note-taking, no thinking about structure, just full concentration on the right questions.</p>
+              <p>The result: deeper conversations, more complete documentation, and questions a human alone would have missed.</p>
+              <p><strong>Data security:</strong> GDPR-compliant, and on request our system runs entirely on your own infrastructure.</p>
+            </div>
+          </details>
+
+          <details class="acc reveal reveal-d2">
+            <summary>
+              <span class="acc__kicker">03</span>
+              <h3 class="acc__title">The Results</h3>
+              <svg class="acc__chevron" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+            </summary>
+            <div class="acc__teaser-wrap">
+              <p class="acc__teaser">Expert knowledge that stays: as onboarding material for your team, as a data foundation for your AI.</p>
+            </div>
+            <div class="acc__body">
+              <div class="acc__hl">
+                <p class="acc__hl-title">For your team</p>
+                <ul class="acc__list">
+                  <li>Training guides for fast onboarding</li>
+                  <li>Decision trees for critical situations</li>
+                  <li>Real-world case studies from everyday work</li>
+                </ul>
+              </div>
+              <div class="acc__hl">
+                <p class="acc__hl-title">For your systems</p>
+                <ul class="acc__list">
+                  <li>Structured knowledge base for your document management</li>
+                  <li>Directly integrable into your AI solution (RAG, Copilot, Chatbot)</li>
+                  <li>Open formats: Word, Markdown, HTML</li>
+                </ul>
+              </div>
+              <p>Don't have an AI solution in place yet? We're happy to help you build one or deliver a ready-made expert chatbot.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Process ========== -->
+    <section class="section section--paper" id="process">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">The Process</span>
+          <h2 class="section-head__title">Results in 3–7 weeks</h2>
+          <p class="section-head__sub">Three clearly timed phases. Your experts invest hours, not weeks.</p>
+        </div>
+
+        <div class="process__track">
+          <div class="phase reveal">
+            <div class="phase__marker">1</div>
+            <span class="phase__duration">1–2 WEEKS</span>
+            <h3 class="phase__title">Scoping</h3>
+            <p class="phase__text">Together we define scope and goal: which knowledge, for whom, in what form?</p>
+            <details class="acc">
+              <summary>
+                <h4 class="acc__title">Details</h4>
+                <svg class="acc__chevron" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+              </summary>
+              <div class="acc__body">
+                <div class="acc__hl">
+                  <p class="acc__hl-title">What we define together</p>
+                  <ul class="acc__list">
+                    <li>Which knowledge is involved, and what is its scope?</li>
+                    <li>Who are the experts: one person or several?</li>
+                    <li>What is the goal: onboarding, AI knowledge base, both?</li>
+                    <li>Who is the target audience for the processed knowledge?</li>
+                  </ul>
+                </div>
+                <p>We also check: which documentation already exists across your different systems and can be integrated, as well as your data protection and data processing requirements.</p>
+                <p><strong>The result:</strong> a clear project plan and an interviewer who understands your technical language.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="phase reveal reveal-d1">
+            <div class="phase__marker">2</div>
+            <span class="phase__duration">1–3 WEEKS</span>
+            <h3 class="phase__title">Interviews</h3>
+            <p class="phase__text">Structured conversations across several sessions. We capture not just the what, but the why.</p>
+            <details class="acc">
+              <summary>
+                <h4 class="acc__title">Details</h4>
+                <svg class="acc__chevron" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+              </summary>
+              <div class="acc__body">
+                <div class="acc__hl">
+                  <p class="acc__hl-title">The three-part approach</p>
+                  <ul class="acc__list">
+                    <li><strong>Capture breadth:</strong> map all knowledge areas</li>
+                    <li><strong>Explore depth:</strong> dig deeper on critical topics</li>
+                    <li><strong>Close gaps:</strong> what happens when X is unavailable?</li>
+                  </ul>
+                </div>
+                <p>Each session lasts 60–120 minutes, focused but not exhausting.</p>
+                <p><strong>After each interview:</strong> immediate consolidation and linking with the existing knowledge network. This lets us prepare the next conversation precisely.</p>
+                <p>The expert only has to answer. We lead, document, and structure.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="phase reveal reveal-d2">
+            <div class="phase__marker">3</div>
+            <span class="phase__duration">1–2 WEEKS</span>
+            <h3 class="phase__title">Processing</h3>
+            <p class="phase__text">Final structuring and delivery in formats that fit your systems.</p>
+            <details class="acc">
+              <summary>
+                <h4 class="acc__title">Details</h4>
+                <svg class="acc__chevron" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+              </summary>
+              <div class="acc__body">
+                <div class="acc__hl">
+                  <p class="acc__hl-title">For your team</p>
+                  <ul class="acc__list">
+                    <li>Onboarding guides for new employees</li>
+                    <li>Decision trees for critical situations</li>
+                    <li>Checklists for recurring tasks</li>
+                  </ul>
+                </div>
+                <div class="acc__hl">
+                  <p class="acc__hl-title">For your systems</p>
+                  <ul class="acc__list">
+                    <li>Structured knowledge base (Markdown, HTML, Word)</li>
+                    <li>Directly integrable into your AI solution</li>
+                    <li>Or: we deliver a ready-made expert chatbot</li>
+                  </ul>
+                </div>
+                <p>Together we make sure the knowledge arrives where it's needed.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Voices (testimonials) ========== -->
+    <section class="section section--sand" id="voices">
+      <div class="container">
+        <div class="quote-carousel reveal" data-quote-carousel>
+          <span class="quote__mark" aria-hidden="true">&bdquo;</span>
+
+          <div class="quote-track">
+            <figure class="quote-slide is-active" data-quote-slide>
+              <blockquote class="quote__text">
+                In a short time, KRS clearly structured our distributed product knowledge and brought it to the point: well organized, quickly accessible, and ready to use directly in sales.
+              </blockquote>
+              <figcaption class="quote__attr">DR. VOLKAN ÜNLÜ · CEO DRIESCHER</figcaption>
+            </figure>
+
+            <figure class="quote-slide" data-quote-slide>
+              <blockquote class="quote__text">
+                Our experiential knowledge no longer sits only in individual heads; it is now usable for AI. That makes our software development noticeably faster and more consistent.
+              </blockquote>
+              <figcaption class="quote__attr">CHRISTOPH HERMANN · CO-FOUNDER WECHSELFABRIK</figcaption>
+            </figure>
+          </div>
+
+          <div class="quote-dots" role="tablist" aria-label="Switch testimonials">
+            <button class="quote-dot is-active" type="button" role="tab" aria-label="Testimonial 1: Driescher" data-quote-dot></button>
+            <button class="quote-dot" type="button" role="tab" aria-label="Testimonial 2: Wechselfabrik" data-quote-dot></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Team ========== -->
+    <section class="section" id="team">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">The Team</span>
+          <h2 class="section-head__title">Engineers who understand your business</h2>
+          <p class="section-head__sub">Three founders with industry backgrounds. We know how knowledge works in companies and how it gets lost.</p>
+        </div>
+
+        <div class="team-grid">
+          <div class="member reveal">
+            <div class="member__photo-wrap"><img src="../images/team-marco.jpg" alt="Marco Karber" class="member__photo" loading="lazy"></div>
+            <div class="member__body">
+              <p class="member__role">Managing Director</p>
+              <h3 class="member__name">Marco Karber</h3>
+              <p class="member__bio">Co-founder and Managing Director of a plant engineering company. Engineer and business economist.</p>
+              <div class="member__links">
+                <a href="#" class="member__link" data-user="marco.karber" data-domain="krs-gmbh.de">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                  <span>Email</span>
+                </a>
+                <a href="https://www.linkedin.com/in/marco-karber-a73207148/" target="_blank" rel="noopener" class="member__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+                  <span>LinkedIn</span>
+                </a>
+              </div>
             </div>
           </div>
-          <div class="card card--has-modal reveal reveal-delay-1"
-               data-modal-title="AI Power"
-               data-modal-content="<div class='modal__highlight'><p class='modal__highlight-title'>Our AI assistant handles:</p><ul class='modal__list'><li>Automatic transcription – no detail is lost</li><li>Automatic structuring according to ACTA schema</li><li>Gap analysis between sessions: &quot;The reasoning is missing here&quot;</li></ul></div><p>The interviewer can fully focus on the expert. No note-taking, no thinking about structure – full concentration on asking the right questions.</p><p>The result: Deeper conversations, more complete documentation, and questions a human alone would have missed.</p><p><strong>Data security:</strong> GDPR-compliant, and on request our system runs entirely on your own infrastructure.</p>">
-            <div class="card__header">
-              <h3 class="card__title">AI Power</h3>
-            </div>
-            <div class="card__body">
-              <p class="card__text">
-                Our AI assistant analyzes interviews, identifies knowledge gaps, and generates targeted follow-up questions. Secure and GDPR-compliant.
-              </p>
-              <button class="card__toggle">
-                <span class="card__toggle-text">Learn more</span>
-                <svg class="card__toggle-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
+
+          <div class="member reveal reveal-d1">
+            <div class="member__photo-wrap"><img src="../images/team-eugen.jpg" alt="Dr. Eugen Neu" class="member__photo" loading="lazy"></div>
+            <div class="member__body">
+              <p class="member__role">Managing Director</p>
+              <h3 class="member__name">Dr. Eugen Neu</h3>
+              <p class="member__bio">25 years of IT/AI experience. 9 years at a global industrial group, where he scaled 50+ AI projects. PhD engineer and certified IT business specialist.</p>
+              <div class="member__links">
+                <a href="#" class="member__link" data-user="eugen.neu" data-domain="krs-gmbh.de">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                  <span>Email</span>
+                </a>
+                <a href="https://www.linkedin.com/in/eugen-neu/" target="_blank" rel="noopener" class="member__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+                  <span>LinkedIn</span>
+                </a>
+              </div>
             </div>
           </div>
-          <div class="card card--has-modal reveal reveal-delay-2"
-               data-modal-title="Results"
-               data-modal-content="<p>We deliver the extracted knowledge in formats that fit your needs:</p><div class='modal__highlight'><p class='modal__highlight-title'>For your team:</p><ul class='modal__list'><li>Training guides for fast onboarding</li><li>Decision trees for critical situations</li><li>Case studies from real work scenarios</li></ul></div><div class='modal__highlight'><p class='modal__highlight-title'>For your systems:</p><ul class='modal__list'><li>Structured knowledge base for your document management</li><li>Directly integrable into your AI solution (RAG, Copilot, Chatbot)</li><li>Open formats: Word, Markdown, HTML – compatible with your systems</li></ul></div><p>Don't have an AI solution yet? We're happy to help you build one – or deliver a ready-made expert chatbot.</p>">
-            <div class="card__header">
-              <h3 class="card__title">Results</h3>
-            </div>
-            <div class="card__body">
-              <p class="card__text">
-                Expert knowledge that stays: As onboarding material for your team, as a data foundation for your AI.
-              </p>
-              <button class="card__toggle">
-                <span class="card__toggle-text">Learn more</span>
-                <svg class="card__toggle-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
+
+          <div class="member reveal reveal-d2">
+            <div class="member__photo-wrap"><img src="../images/team-andreas.jpg" alt="Andreas Kupke" class="member__photo" loading="lazy"></div>
+            <div class="member__body">
+              <p class="member__role">Partner</p>
+              <h3 class="member__name">Andreas Kupke</h3>
+              <p class="member__bio">Co-founder of Finanzcheck.de (exit to Scout24 AG). 10+ own ventures and investments in 40+ companies such as 1KOMMA5°, Isar Aerospace, LiveEO. Focus: deep tech and industrial SMEs. Engineer.</p>
+              <div class="member__links">
+                <a href="https://www.linkedin.com/in/andreas-kupke-25186313/" target="_blank" rel="noopener" class="member__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+                  <span>LinkedIn</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ========== Process Section ========== -->
-    <section class="section" id="process">
+    <!-- ========== CTA ========== -->
+    <section class="cta" id="contact">
       <div class="container">
-        <div class="section-header">
-          <span class="section-header__tag">The Process</span>
-          <h2 class="section-header__title">Results in 3-7 weeks</h2>
-        </div>
-
-        <div class="process-flow">
-          <!-- Phase 1: Scoping -->
-          <div class="process-card card--has-modal reveal"
-               data-modal-title="Scoping"
-               data-modal-content="<p>Before the first interview, we clarify the key questions:</p><div class='modal__highlight'><p class='modal__highlight-title'>What we define together:</p><ul class='modal__list'><li>What knowledge is it about – and what's the scope?</li><li>Who are the experts – one person or several?</li><li>What's the goal – onboarding, AI knowledge base, or both?</li><li>Who is the target audience for the processed knowledge?</li></ul></div><p>We also check:</p><ul class='modal__list'><li>Is there existing documentation we can incorporate?</li><li>What systems do you use (Confluence, SharePoint, AI tools)?</li><li>What are your data privacy and processing requirements?</li></ul><p><strong>The result:</strong> A clear project plan – and an interviewer who understands your technical language.</p>">
-            <div class="process-card__header">
-              <span class="process-card__number">1</span>
-              <div class="process-card__header-content">
-                <h3 class="process-card__title">Scoping</h3>
-                <span class="process-card__duration">1-2 weeks</span>
-              </div>
-            </div>
-            <div class="process-card__body">
-              <p class="process-card__text">
-                Together we define scope and goal: Which knowledge, for whom, in what format?
-              </p>
-              <button class="card__toggle">
-                <span class="card__toggle-text">Learn more</span>
-                <svg class="card__toggle-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Arrow 1 -->
-          <div class="process-arrow" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </div>
-
-          <!-- Phase 2: Interviews -->
-          <div class="process-card card--has-modal reveal reveal-delay-1"
-               data-modal-title="Interviews"
-               data-modal-content="<p>Multiple interview rounds, spread over 1-3 weeks:</p><div class='modal__highlight'><p class='modal__highlight-title'>The three-step approach:</p><ul class='modal__list'><li><strong>Capture breadth</strong> – Map all knowledge areas</li><li><strong>Explore depth</strong> – Dig deeper on critical topics</li><li><strong>Close gaps</strong> – What happens when X fails?</li></ul></div><p>Each session lasts 60-120 minutes – focused but not exhausting.</p><p><strong>After each interview:</strong> Immediate consolidation and connection to the existing knowledge network. This allows us to prepare the next conversation precisely.</p><p>The expert only needs to answer – we lead, document, and structure.</p>">
-            <div class="process-card__header">
-              <span class="process-card__number">2</span>
-              <div class="process-card__header-content">
-                <h3 class="process-card__title">Interviews</h3>
-                <span class="process-card__duration">1-3 weeks</span>
-              </div>
-            </div>
-            <div class="process-card__body">
-              <p class="process-card__text">
-                Structured conversations across multiple sessions. We capture not just WHAT, but WHY.
-              </p>
-              <button class="card__toggle">
-                <span class="card__toggle-text">Learn more</span>
-                <svg class="card__toggle-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Arrow 2 -->
-          <div class="process-arrow" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </div>
-
-          <!-- Phase 3: Processing -->
-          <div class="process-card card--has-modal reveal reveal-delay-2"
-               data-modal-title="Processing"
-               data-modal-content="<p>From interviews to usable knowledge:</p><div class='modal__highlight'><p class='modal__highlight-title'>For your team:</p><ul class='modal__list'><li>Onboarding guides for new employees</li><li>Decision trees for critical situations</li><li>Checklists for recurring tasks</li></ul></div><div class='modal__highlight'><p class='modal__highlight-title'>For your systems:</p><ul class='modal__list'><li>Structured knowledge base (Markdown, HTML, Word)</li><li>Directly integrable into your AI solution</li><li>Or: We deliver a ready-made expert chatbot</li></ul></div><p>Together we ensure the knowledge reaches where it's needed.</p>">
-            <div class="process-card__header">
-              <span class="process-card__number">3</span>
-              <div class="process-card__header-content">
-                <h3 class="process-card__title">Processing</h3>
-                <span class="process-card__duration">1-2 weeks</span>
-              </div>
-            </div>
-            <div class="process-card__body">
-              <p class="process-card__text">
-                Final structuring and delivery – in formats that fit your systems.
-              </p>
-              <button class="card__toggle">
-                <span class="card__toggle-text">Learn more</span>
-                <svg class="card__toggle-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== Team Section ========== -->
-    <section class="section section--sand" id="team">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-header__tag">The Team</span>
-          <h2 class="section-header__title">Engineers who understand your business</h2>
-          <p class="section-header__subtitle">
-            Three founders with industry backgrounds. We know how knowledge works in companies – and how it gets lost.
-          </p>
-        </div>
-
-        <div class="grid grid--3">
-          <div class="team-member reveal">
-            <button type="button" class="team-member__link team-member__btn" id="openMarcoModal">
-              <img src="../images/team-marco.jpg" alt="Marco Karber" class="team-member__photo" loading="lazy">
-              <h3 class="team-member__name">Marco Karber</h3>
-            </button>
-            <p class="team-member__role">Managing Director</p>
-            <p class="team-member__bio">
-              Co-founder and Managing Director of a plant engineering company. Engineer and business economist.
-            </p>
-          </div>
-          <div class="team-member reveal reveal-delay-1">
-            <button type="button" class="team-member__link team-member__btn" id="openEugenModal">
-              <img src="../images/team-eugen.jpg" alt="Dr. Eugen Neu" class="team-member__photo" loading="lazy">
-              <h3 class="team-member__name">Dr. Eugen Neu</h3>
-            </button>
-            <p class="team-member__role">Managing Director</p>
-            <p class="team-member__bio">
-              25 years IT/AI experience. 9 years at a global industrial company, scaled 50+ AI projects. PhD in Engineering, certified IT business specialist.
-            </p>
-          </div>
-          <div class="team-member reveal reveal-delay-2">
-            <button type="button" class="team-member__link team-member__btn" id="openAndreasModal">
-              <img src="../images/team-andreas.jpg" alt="Andreas Kupke" class="team-member__photo" loading="lazy">
-              <h3 class="team-member__name">Andreas Kupke</h3>
-            </button>
-            <p class="team-member__role">Partner</p>
-            <p class="team-member__bio">
-              Co-founder Finanzcheck.de (Exit to Scout24 AG). 10+ own ventures and investments in 40+ companies like 1KOMMA5°, Isar Aerospace, LiveEO. Focus: Deep Tech and industrial SMEs. Engineer.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== CTA Section ========== -->
-    <section class="section section--dark cta-section" id="contact">
-      <div class="container">
-        <h2 class="cta-section__title">Ready to capture your knowledge?</h2>
-        <p class="cta-section__subtitle">
-          Let's discuss how your company can secure and better leverage the critical knowledge of your experts and leaders. Send us a short email – we'll get back to you right away.
+        <h2 class="cta__title">Ready to secure your knowledge?</h2>
+        <hr class="accent-line">
+        <p class="cta__sub">
+          Let's discuss how your company can secure and make even better use of the critical knowledge of your experts and leaders. Send us a short email and we'll get back to you right away.
         </p>
-
-        <div class="cta-section__contact-options">
-          <a href="mailto:info@krs-gmbh.de" class="cta-contact-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-            </svg>
-            <span>info@krs-gmbh.de</span>
-          </a>
-        </div>
-
-        <!-- Contact Modal for Marco (Team Section) -->
-        <div class="contact-modal" id="marcoModal">
-          <div class="contact-modal__backdrop"></div>
-          <div class="contact-modal__content">
-            <div class="contact-modal__header-bar">
-              <span class="contact-modal__header-title">Contact</span>
-              <button type="button" class="contact-modal__close" aria-label="Close">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-              </button>
-            </div>
-            <div class="contact-modal__profile">
-              <img src="../images/team-marco.jpg" alt="Marco Karber" class="contact-modal__photo">
-              <h3 class="contact-modal__name">Marco Karber</h3>
-              <p class="contact-modal__role">Managing Director</p>
-            </div>
-            <div class="contact-modal__body">
-              <a href="#" data-user="marco.karber" data-domain="krs-gmbh.de" class="contact-modal__link">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                </svg>
-                <span>marco.karber[at]krs-gmbh.de</span>
-              </a>
-              <a href="https://www.linkedin.com/in/marco-karber-a73207148/" target="_blank" rel="noopener" class="contact-modal__link">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-                <span>LinkedIn</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Contact Modal for Eugen (Team Section) -->
-        <div class="contact-modal" id="eugenModal">
-          <div class="contact-modal__backdrop"></div>
-          <div class="contact-modal__content">
-            <div class="contact-modal__header-bar">
-              <span class="contact-modal__header-title">Contact</span>
-              <button type="button" class="contact-modal__close" aria-label="Close">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-              </button>
-            </div>
-            <div class="contact-modal__profile">
-              <img src="../images/team-eugen.jpg" alt="Dr. Eugen Neu" class="contact-modal__photo">
-              <h3 class="contact-modal__name">Dr. Eugen Neu</h3>
-              <p class="contact-modal__role">Managing Director</p>
-            </div>
-            <div class="contact-modal__body">
-              <a href="#" data-user="eugen.neu" data-domain="krs-gmbh.de" class="contact-modal__link">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                </svg>
-                <span>eugen.neu[at]krs-gmbh.de</span>
-              </a>
-              <a href="https://www.linkedin.com/in/eugen-neu/" target="_blank" rel="noopener" class="contact-modal__link">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-                <span>LinkedIn</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Contact Modal for Andreas (Team Section) -->
-        <div class="contact-modal" id="andreasModal">
-          <div class="contact-modal__backdrop"></div>
-          <div class="contact-modal__content">
-            <div class="contact-modal__header-bar">
-              <span class="contact-modal__header-title">Contact</span>
-              <button type="button" class="contact-modal__close" aria-label="Close">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-              </button>
-            </div>
-            <div class="contact-modal__profile">
-              <img src="../images/team-andreas.jpg" alt="Andreas Kupke" class="contact-modal__photo">
-              <h3 class="contact-modal__name">Andreas Kupke</h3>
-              <p class="contact-modal__role">Partner</p>
-            </div>
-            <div class="contact-modal__body">
-              <a href="https://www.linkedin.com/in/andreas-kupke-25186313/" target="_blank" rel="noopener" class="contact-modal__link">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-                <span>LinkedIn</span>
-              </a>
-            </div>
-          </div>
-        </div>
+        <a href="mailto:info@krs-gmbh.de" class="cta__mail">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+          <span>info@krs-gmbh.de</span>
+        </a>
       </div>
     </section>
   </main>
 
   <!-- ========== Footer ========== -->
-  <footer class="footer footer--minimal">
+  <footer class="footer">
     <div class="container">
-      <p class="footer__minimal">
-        &copy; 2026 Knowledge Retention Solutions GmbH
-        <span class="footer__separator">&middot;</span>
+      <div class="footer__inner">
+        <span>&copy; 2026 Knowledge Retention Solutions GmbH</span>
+        <span class="footer__sep">&middot;</span>
         <a href="imprint.html">Imprint</a>
-        <span class="footer__separator">&middot;</span>
+        <span class="footer__sep">&middot;</span>
         <a href="privacy.html">Privacy Policy</a>
-      </p>
+      </div>
     </div>
   </footer>
 
-  <!-- Modal Overlay -->
-  <div class="modal-overlay" id="cardModal" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <div class="modal__header">
-        <h3 class="modal__title" id="modalTitle"></h3>
-        <button class="modal__close" aria-label="Close">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="24" height="24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-      <div class="modal__body">
-        <div class="modal__content"></div>
-      </div>
-    </div>
-  </div>
-
   <!-- Scripts -->
-  <script src="../js/main.js"></script>
+  <script src="../js/redesign.js"></script>
 </body>
 </html>
