@@ -106,25 +106,45 @@
     link.setAttribute('href', 'mailto:' + addr);
   });
 
-  /* ----- Stimmen-Carousel (statisch, manueller Wechsel ueber Punkte) ----- */
+  /* ----- Stimmen-Carousel (statisch; Wechsel ueber Punkte, Wischgeste, Pfeiltasten) ----- */
   var carousel = document.querySelector('[data-quote-carousel]');
   if (carousel) {
     var slides = Array.prototype.slice.call(carousel.querySelectorAll('[data-quote-slide]'));
     var dots = Array.prototype.slice.call(carousel.querySelectorAll('[data-quote-dot]'));
+    var active = 0;
 
     function go(i) {
-      var current = (i + slides.length) % slides.length;
-      slides.forEach(function (s, n) { s.classList.toggle('is-active', n === current); });
+      active = (i + slides.length) % slides.length;
+      slides.forEach(function (s, n) { s.classList.toggle('is-active', n === active); });
       dots.forEach(function (d, n) {
-        d.classList.toggle('is-active', n === current);
-        d.setAttribute('aria-selected', n === current ? 'true' : 'false');
+        d.classList.toggle('is-active', n === active);
+        d.setAttribute('aria-selected', n === active ? 'true' : 'false');
       });
     }
 
     /* Keine Auto-Rotation: die erste Stimme (Driescher) bleibt sichtbar,
-       bis der Nutzer ueber die Punkte aktiv auf eine andere wechselt. */
+       bis der Nutzer ueber Punkte, Wischgeste oder Pfeiltasten wechselt. */
     dots.forEach(function (d, n) {
       d.addEventListener('click', function () { go(n); });
+    });
+
+    /* Touch-Swipe (Mobile): horizontale Wischgeste blaettert eine Stimme weiter. */
+    var touchX = null;
+    carousel.addEventListener('touchstart', function (e) {
+      touchX = e.changedTouches[0].clientX;
+    }, { passive: true });
+    carousel.addEventListener('touchend', function (e) {
+      if (touchX === null) return;
+      var dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 40) go(active + (dx < 0 ? 1 : -1));
+      touchX = null;
+    }, { passive: true });
+
+    /* Tastatur (a11y): Pfeil links/rechts blaettert, wenn das Carousel fokussiert ist. */
+    carousel.setAttribute('tabindex', '0');
+    carousel.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { go(active - 1); e.preventDefault(); }
+      else if (e.key === 'ArrowRight') { go(active + 1); e.preventDefault(); }
     });
 
     go(0);
