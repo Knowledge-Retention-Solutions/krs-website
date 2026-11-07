@@ -1,0 +1,24 @@
+# Knowledge Retention Solutions
+
+> Knowledge Retention Solutions GmbH (KRS) aus Aachen sichert Erfahrungswissen von Experten systematisch durch Interviews und KI, bevor es mit der Rente verschwindet, und macht es in Wissensbasen für Teams und KI-Assistenten nutzbar. Claim: „Wissen sichern. Wissen skalieren.“
+
+Geschäftsführer: Marco Karber und Dr. Eugen Neu. Kontakt: info@krs-gmbh.de. Die Website ist zweisprachig (Deutsch und Englisch).
+
+## Website
+- [Startseite (Deutsch)](https://www.knowledge-retention-solutions.de/): Angebot, Ablauf, Stimmen und Team
+- [Homepage (English)](https://www.knowledge-retention-solutions.de/en/): offering, process, voices and team
+- [Impressum](https://www.knowledge-retention-solutions.de/impressum.html): Firmenangaben und Registereintrag
+
+## Fachartikel (Deutsch)
+- [Übersicht](https://www.knowledge-retention-solutions.de/fachartikel/): alle Fachartikel
+- [Warum wir jedes Meeting-Transkript behalten](https://www.knowledge-retention-solutions.de/fachartikel/warum-wir-jedes-meeting-transkript-behalten/): In 117 unserer Meetings war fast die Hälfte des Gesagten Denkarbeit: Gründe, Ideen, Erfahrung. KI-Zusammenfassungen behielten davon fast nichts.
+- [Zweckgerichtete Wissensbasen mit Experteninterviews](https://www.knowledge-retention-solutions.de/fachartikel/zweckgerichtete-wissensbasen/): Dokumente zu ordnen reicht nicht, wenn das nötige Wissen nie aufgeschrieben wurde. Warum jede Wissensbasis mit einem Zweck beginnt und Interviews die Lücken schließen.
+- [Das beste Format für Firmenwissen ist vielleicht ein Ordner mit Markdown-Dateien](https://www.knowledge-retention-solutions.de/fachartikel/bestes-format-fuer-firmenwissen/): Warum ein Ordner mit Markdown-Dateien nach dem Open Knowledge Format Menschen und KI-Agenten gleichermaßen dient, und wo seine Grenzen liegen.
+- [Offenbar bin ich auch anfällig für Trendslop](https://www.knowledge-retention-solutions.de/fachartikel/trendslop/): Große Sprachmodelle raten in Strategiefragen fast immer zur selben Seite. Meine eigenen Vorlieben liegen erstaunlich nah daran. Was daraus für die Strategiearbeit mit KI folgt.
+
+## Articles (English)
+- [Overview](https://www.knowledge-retention-solutions.de/en/articles/): all articles
+- [Why We Keep Every Meeting Transcript](https://www.knowledge-retention-solutions.de/en/articles/why-we-keep-every-meeting-transcript/): Nearly half of what we said in 117 meetings was thinking: reasons, ideas, experience. AI summaries kept almost none of it.
+- [Building Purpose-Driven Knowledge Bases with Expert Interviews](https://www.knowledge-retention-solutions.de/en/articles/building-purpose-driven-knowledge-bases/): Organising documents is not enough when the knowledge you need was never written down. Why every knowledge base starts with a purpose and interviews fill the gaps.
+- [The Best Format for Company Knowledge Might Be a Folder of Markdown Files](https://www.knowledge-retention-solutions.de/en/articles/best-format-for-company-knowledge/): Why a folder of Markdown files, structured with the Open Knowledge Format, works for humans and AI agents alike, and where its limits are.
+- [Apparently I Trendslop Too](https://www.knowledge-retention-solutions.de/en/articles/apparently-i-trendslop-too/): All major frontier models lean toward the same strategic advice. My own preferences are surprisingly close. What this means for strategy work with AI.

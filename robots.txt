@@ -1,2 +1,4 @@
 User-agent: *
 Disallow: /v/
+
+Sitemap: https://www.knowledge-retention-solutions.de/sitemap.xml

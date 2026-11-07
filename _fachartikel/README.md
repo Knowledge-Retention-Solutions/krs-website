@@ -11,7 +11,8 @@ Ordner mit Unterstrich veröffentlicht GitHub Pages nicht.
 3. Text: Absätze durch Leerzeilen trennen. `## ` für Zwischenüberschriften, `> ` für Zitate,
    `[Text](URL)` für Links. Abbildung: erste Zeile `![Alt-Text](images/...png)`, folgende Zeilen sind die Bildunterschrift.
 4. Bilder unter `images/fachartikel/<id>/` ablegen.
-5. Seiten erzeugen: `python3 _tools/build_fachartikel.py` (im Website-Ordner). Übersichten und Artikelseiten werden neu geschrieben.
+5. Seiten erzeugen: `python3 _tools/build_fachartikel.py` (im Website-Ordner). Übersichten, Artikelseiten, `sitemap.xml` und `llms.txt` werden neu geschrieben.
+   Neue statische Seiten außerhalb der Artikel in `STATIC_PAIRS` im Skript ergänzen, damit sie in der Sitemap stehen.
 
 ## Grafiken
 
