@@ -1,0 +1,25 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="_basis.css">
+<style>
+.col { position: absolute; top: 320px; }
+.num { font-size: 80px; font-weight: 600; color: #1A365D; line-height: 1; margin-bottom: 22px; }
+.num small { font-size: 30px; font-weight: 400; color: #718096; margin-left: 14px; }
+.waffle { --cell: 38px; --gap: 8px; }
+.wm { bottom: 34px; }
+.cap { position: absolute; top: 900px; font-size: 36px; font-weight: 600; color: #1A365D; }
+</style></head><body>
+<h1 class="title">Wie viel eines Meetings landet in den Notizen?</h1>
+<p class="sub">Von 100 Aussagen; Gemini-Notizen aus 20 unserer Meetings</p>
+<div class="legend"><span><b class="c-t"></b>Denkarbeit</span><span><b class="c-f"></b>Fakten und Signale</span><span><b class="c-o"></b>Ergebnisse</span></div>
+<div class="col" style="left:120px"><div class="num">100<small>von 100</small></div><div class="waffle" data-mix="45,42,13"></div></div>
+<div class="col" style="left:760px"><div class="num">43<small>von 100</small></div><div class="waffle" data-mix="15,19,9"></div></div>
+<div class="col" style="left:1400px"><div class="num">10<small>von 100</small></div><div class="waffle" data-mix="2,3,5"></div></div>
+<div class="cap" style="left:120px">Das ganze Gespräch</div>
+<div class="cap" style="left:760px">Vollständige Gemini-Notiz</div>
+<div class="cap" style="left:1400px">Gemini-Zusammenfassung</div>
+<div class="wm">KRS</div>
+<script>
+document.querySelectorAll('.waffle').forEach(w => {
+  const [t,f,o] = w.dataset.mix.split(',').map(Number);
+  [['c-t',t],['c-f',f],['c-o',o]].forEach(([c,n]) => { for (let i=0;i<n;i++){ const e=document.createElement('i'); e.className=c; w.appendChild(e);} });
+});
+</script></body></html>

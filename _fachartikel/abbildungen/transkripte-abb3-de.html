@@ -1,0 +1,33 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="_basis.css">
+<style>
+.rows { position: absolute; left: 120px; top: 330px; width: 1680px; }
+.r { display: grid; grid-template-columns: 760px 920px; align-items: center; height: 82px; }
+.q { font-size: 32px; color: #2D3748; }
+.bar { display: flex; height: 50px; }
+.bar div { display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; font-size: 26px; overflow: hidden; white-space: nowrap; }
+.note { position: absolute; left: 120px; top: 960px; font-size: 26px; color: #718096; }
+</style></head><body>
+<h1 class="title">Wie viel der Antwort steckt in welcher Aufzeichnung?</h1>
+<p class="sub">Fragen, die ein neues Teammitglied stellen könnte, und wo die Antwort zu finden ist</p>
+<div class="legend"><span><b class="c-o"></b>In der Zusammenfassung</span><span><b class="c-f"></b>Zusätzlich in der vollständigen Notiz</span><span><b class="c-t"></b>Nur im Transkript</span></div>
+<div class="rows" id="rows"></div>
+<p class="note">Gemessen an den KI-Notizen derselben 20 Meetings; andere getestete Zusammenfassungen zeigen dasselbe Muster.</p>
+<div class="wm">KRS</div>
+<script>
+const data = [
+  ['Wer macht was?', 44, 24, 32],
+  ['Was wurde entschieden?', 23, 43, 34],
+  ['Warum wurde so entschieden?', 9, 38, 53],
+  ['Was hat der Kunde gesagt?', 3, 36, 61],
+  ['Welche Ideen kamen auf?', 7, 31, 62],
+  ['Welche Erfahrung wurde weitergegeben?', 0, 18, 82],
+  ['Was ist noch offen?', 1, 14, 85],
+];
+const rows = document.getElementById('rows');
+data.forEach(([q, s, n, t]) => {
+  const r = document.createElement('div'); r.className = 'r';
+  const seg = (v, c) => v ? `<div class="${c}" style="width:${v}%">${v >= 6 ? v + ' %' : ''}</div>` : '';
+  r.innerHTML = `<div class="q">${q}</div><div class="bar">${seg(s,'c-o')}${seg(n,'c-f')}${seg(t,'c-t')}</div>`;
+  rows.appendChild(r);
+});
+</script></body></html>

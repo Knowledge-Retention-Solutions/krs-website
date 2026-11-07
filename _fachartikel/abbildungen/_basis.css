@@ -1,0 +1,17 @@
+@font-face { font-family: 'Inter'; font-weight: 400; src: url('../../fonts/inter-regular.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 500; src: url('../../fonts/inter-medium.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 600; src: url('../../fonts/inter-semibold.woff2') format('woff2'); }
+@font-face { font-family: 'IBM Plex Serif'; font-weight: 600; src: url('../../fonts/ibmplexserif-semibold.woff2') format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-weight: 400; src: url('../../fonts/jetbrainsmono-regular.woff2') format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-weight: 500; src: url('../../fonts/jetbrainsmono-medium.woff2') format('woff2'); }
+html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #fff; }
+body { font-family: 'Inter', sans-serif; color: #2D3748; position: relative; }
+.title { position: absolute; left: 120px; top: 64px; font-family: 'IBM Plex Serif', serif; font-weight: 600; font-size: 64px; color: #1A365D; margin: 0; }
+.sub { position: absolute; left: 120px; top: 168px; font-size: 32px; color: #718096; margin: 0; }
+.wm { position: absolute; right: 120px; bottom: 64px; font-family: 'IBM Plex Serif', serif; font-weight: 600; font-size: 36px; letter-spacing: .12em; color: #1A365D; border-bottom: 4px solid #C27B2D; padding-bottom: 4px; }
+.c-t { background: #C27B2D; } .c-f { background: #8B9BB3; } .c-o { background: #1A365D; }
+.waffle { display: grid; grid-template-columns: repeat(10, var(--cell)); gap: var(--gap); }
+.waffle i { width: var(--cell); height: var(--cell); border-radius: calc(var(--cell) * .14); display: block; }
+.legend { position: absolute; left: 120px; top: 238px; display: flex; gap: 64px; font-size: 30px; align-items: center; }
+.legend span { display: inline-flex; align-items: center; gap: 14px; }
+.legend b { width: 28px; height: 28px; border-radius: 4px; display: inline-block; }

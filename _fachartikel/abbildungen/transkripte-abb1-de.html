@@ -1,0 +1,19 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="_basis.css">
+<style>
+.waffle { position: absolute; left: 120px; top: 290px; --cell: 58px; --gap: 9px; }
+.row { position: absolute; left: 900px; display: grid; grid-template-columns: 250px 1fr; column-gap: 28px; align-items: start; }
+.pct { white-space: nowrap; font-size: 92px; font-weight: 600; line-height: 1; }
+.lbl { font-family: 'IBM Plex Serif', serif; font-weight: 600; font-size: 46px; color: #1A365D; line-height: 1.1; }
+.desc { font-size: 30px; line-height: 1.45; color: #2D3748; margin-top: 8px; max-width: 760px; }
+</style></head><body>
+<h1 class="title">Was teilen wir in einem Meeting?</h1>
+<p class="sub">11.532 Aussagen aus 117 unserer Meetings</p>
+<div class="waffle" id="w"></div>
+<div class="row" style="top:300px"><div class="pct" style="color:#C27B2D">45 %</div><div><div class="lbl">Denkarbeit</div><div class="desc">Gründe, Ideen, Erfahrung, Faustregeln, Lehren, offene Fragen, Bedenken</div></div></div>
+<div class="row" style="top:540px"><div class="pct" style="color:#8B9BB3">42 %</div><div><div class="lbl">Fakten und Signale</div><div class="desc">Statusmeldungen, Kundensignale, Strategie, Produkt, Personen, Organisatorisches, Input von außen, Team</div></div></div>
+<div class="row" style="top:800px"><div class="pct" style="color:#1A365D">13 %</div><div><div class="lbl">Ergebnisse</div><div class="desc">Entscheidungen, Zusagen</div></div></div>
+<div class="wm">KRS</div>
+<script>
+const w = document.getElementById('w');
+[['c-t',45],['c-f',42],['c-o',13]].forEach(([c,n]) => { for (let i=0;i<n;i++){ const e=document.createElement('i'); e.className=c; w.appendChild(e);} });
+</script></body></html>
