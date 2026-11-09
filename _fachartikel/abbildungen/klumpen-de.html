@@ -1,0 +1,49 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="_basis.css">
+<style>
+.row { position:absolute; left:0; width:1920px; height:84px; }
+.lab { position:absolute; left:120px; top:0; width:480px; }
+.name { font-size:38px; color:#2D3748; line-height:1.1; }
+.name.strong { font-weight:600; color:#1A365D; }
+.cnt { font-size:26px; color:#718096; margin-top:6px; }
+.bar { position:absolute; top:10px; height:60px; border-radius:6px; }
+.val { position:absolute; top:14px; font-size:42px; font-weight:600; background:#fff; padding:0 10px; margin-left:-10px; z-index:2; }
+.avg { position:absolute; z-index:1; left:916px; top:280px; height:670px; border-left:4px dashed #1A365D; opacity:.55; }
+.avgl { position:absolute; left:930px; top:254px; font-size:28px; font-weight:600; color:#1A365D; opacity:.8; }
+.note { position:absolute; left:120px; bottom:64px; font-size:26px; color:#A0AEC0; }
+</style></head><body>
+<h1 class="title">Wo die Renteneintritte klumpen</h1>
+<p class="sub">Anteil der 55- bis 64-Jährigen je Abteilung, Beispielbetrieb mit 200 Mitarbeitenden</p>
+<div class="avg"></div><div class="avgl">Ø 24 %</div>
+<div class="row" style="top:300px">
+  <div class="lab"><div class="name strong">Gesamtbetrieb</div><div class="cnt">48 von 200</div></div>
+  <div class="bar" style="left:640px;width:276px;background:#1A365D"></div>
+  <div class="val" style="left:940px;color:#1A365D">24 %</div>
+</div>
+<div class="row" style="top:440px">
+  <div class="lab"><div class="name">Produktion</div><div class="cnt">22 von 110</div></div>
+  <div class="bar" style="left:640px;width:230px;background:#8B9BB3"></div>
+  <div class="val" style="left:894px;color:#1A365D">20 %</div>
+</div>
+<div class="row" style="top:544px">
+  <div class="lab"><div class="name">Vertrieb</div><div class="cnt">5 von 25</div></div>
+  <div class="bar" style="left:640px;width:230px;background:#8B9BB3"></div>
+  <div class="val" style="left:894px;color:#1A365D">20 %</div>
+</div>
+<div class="row" style="top:648px">
+  <div class="lab"><div class="name">Konstruktion</div><div class="cnt">9 von 30</div></div>
+  <div class="bar" style="left:640px;width:345px;background:#8B9BB3"></div>
+  <div class="val" style="left:1009px;color:#1A365D">30 %</div>
+</div>
+<div class="row" style="top:752px">
+  <div class="lab"><div class="name">Verwaltung</div><div class="cnt">9 von 30</div></div>
+  <div class="bar" style="left:640px;width:345px;background:#8B9BB3"></div>
+  <div class="val" style="left:1009px;color:#1A365D">30 %</div>
+</div>
+<div class="row" style="top:856px">
+  <div class="lab"><div class="name strong">Instandhaltung</div><div class="cnt">3 von 5</div></div>
+  <div class="bar" style="left:640px;width:690px;background:#C27B2D"></div>
+  <div class="val" style="left:1354px;color:#C27B2D">60 %</div>
+</div>
+<div class="note">Zahlen illustrativ</div>
+<div class="wm">KRS</div>
+</body></html>

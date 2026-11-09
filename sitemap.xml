@@ -38,17 +38,31 @@
   </url>
   <url>
     <loc>https://www.knowledge-retention-solutions.de/fachartikel/</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.knowledge-retention-solutions.de/fachartikel/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.knowledge-retention-solutions.de/en/articles/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.knowledge-retention-solutions.de/fachartikel/"/>
   </url>
   <url>
     <loc>https://www.knowledge-retention-solutions.de/en/articles/</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.knowledge-retention-solutions.de/fachartikel/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.knowledge-retention-solutions.de/en/articles/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.knowledge-retention-solutions.de/fachartikel/"/>
+  </url>
+  <url>
+    <loc>https://www.knowledge-retention-solutions.de/fachartikel/wissensabfluss-nicht-im-durchschnitt/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.knowledge-retention-solutions.de/fachartikel/wissensabfluss-nicht-im-durchschnitt/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.knowledge-retention-solutions.de/en/articles/why-the-retirement-average-misleads/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.knowledge-retention-solutions.de/fachartikel/wissensabfluss-nicht-im-durchschnitt/"/>
+  </url>
+  <url>
+    <loc>https://www.knowledge-retention-solutions.de/en/articles/why-the-retirement-average-misleads/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.knowledge-retention-solutions.de/fachartikel/wissensabfluss-nicht-im-durchschnitt/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.knowledge-retention-solutions.de/en/articles/why-the-retirement-average-misleads/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.knowledge-retention-solutions.de/fachartikel/wissensabfluss-nicht-im-durchschnitt/"/>
   </url>
   <url>
     <loc>https://www.knowledge-retention-solutions.de/fachartikel/warum-wir-jedes-meeting-transkript-behalten/</loc>
