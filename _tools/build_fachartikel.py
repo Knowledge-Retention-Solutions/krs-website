@@ -19,6 +19,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "_fachartikel"
 SITE = "https://www.knowledge-retention-solutions.de/"
+# Bump on every change to css/ or js/, here and in the hand-written pages (see README).
+ASSET_VERSION = "2026-11-12"
 MONTHS = {
     "de": ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
     "en": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
@@ -41,7 +43,7 @@ UI = {
     },
     "en": {
         "base": "en/articles/", "home": "en/", "lang_label": "EN",
-        "nav": [("#solution", "Solution"), ("#process", "Process"), ("#voices", "Voices"), ("#team", "Team")],
+        "nav": [("#solution", "Corporate Memory"), ("#offers", "Offers"), ("#voices", "Voices"), ("#team", "Team")],
         "nav_articles": "Articles", "contact": "Contact", "contact_anchor": "#contact",
         "claim": "Capture Knowledge. Scale Expertise.", "menu": "Open menu", "nav_label": "Main navigation",
         "eyebrow": "Articles", "head_title": "Insights from practice",
@@ -137,7 +139,7 @@ LOCALE = {"de": "de-DE", "en": "en"}
 
 # Static pages for the sitemap: (DE path, EN path or None for pages that exist in German only)
 STATIC_PAIRS: list[tuple[str, str | None]] = [
-    ("", "en/"), ("sofort-sicherung/", None),
+    ("", "en/"), ("sofort-sicherung/", "en/rapid-capture/"),
     ("impressum.html", "en/imprint.html"), ("datenschutz.html", "en/privacy.html"),
 ]
 
@@ -152,7 +154,8 @@ Geschäftsführer: Marco Karber und Dr. Eugen Neu. Kontakt: info@krs-gmbh.de. Di
 ## Website
 - [Startseite (Deutsch)]({site}): Corporate Memory, Angebote in vier Stufen, Stimmen und Team
 - [Sofort-Sicherung]({site}sofort-sicherung/): Einstieg zum Festpreis von 10.390 Euro netto: Tiefeninterviews mit einem Experten zu einem Fachgebiet, Übergabe als Wissensbasis nach rund vier Wochen
-- [Homepage (English)]({site}en/): offering, process, voices and team
+- [Homepage (English)]({site}en/): Corporate Memory, offers in four tiers, voices and team
+- [Rapid Capture (English)]({site}en/rapid-capture/): fixed-price entry offer at EUR 10,390 net: in-depth interviews with one expert on one area of expertise, handover as a knowledge base after around four weeks
 - [Impressum]({site}impressum.html): Firmenangaben und Registereintrag
 """
 
@@ -191,8 +194,8 @@ def page(lang: str, prefix: str, title: str, desc: str, path: str, alt_path: str
   <link rel="alternate" hreflang="en" href="{SITE}{paths['en']}">
   <link rel="alternate" hreflang="x-default" href="{SITE}{paths['de']}">
   <link rel="icon" type="image/svg+xml" href="{prefix}images/krs-logo.svg">
-  <link rel="stylesheet" href="{prefix}css/redesign.css">
-  <link rel="stylesheet" href="{prefix}css/blog.css">
+  <link rel="stylesheet" href="{prefix}css/redesign.css?v={ASSET_VERSION}">
+  <link rel="stylesheet" href="{prefix}css/blog.css?v={ASSET_VERSION}">
 {structured}</head>
 <body>
 
@@ -245,7 +248,7 @@ def page(lang: str, prefix: str, title: str, desc: str, path: str, alt_path: str
     </div>
   </footer>
 
-  <script src="{prefix}js/redesign.js"></script>
+  <script src="{prefix}js/redesign.js?v={ASSET_VERSION}"></script>
 </body>
 </html>
 """
