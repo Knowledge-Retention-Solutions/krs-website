@@ -30,11 +30,10 @@ UI = {
         "nav_articles": "Fachartikel", "contact": "Kontakt", "contact_anchor": "#kontakt",
         "claim": "Wissen sichern. Wissen skalieren.", "menu": "Menü öffnen", "nav_label": "Hauptnavigation",
         "eyebrow": "Fachartikel", "head_title": "Wissen aus der Praxis",
-        "head_sub": "Was wir in Projekten, Interviews und unseren eigenen Meetings über Erfahrungswissen lernen. Die Artikel sind zuerst auf LinkedIn erschienen.",
+        "head_sub": "Was wir in Projekten, Interviews und unseren eigenen Meetings über Erfahrungswissen lernen. Die meisten Artikel sind zuerst auf LinkedIn erschienen.",
         "list_title": "Fachartikel", "tag": "Artikel", "more": "Weiterlesen →", "minutes": "Min. Lesezeit",
-        "back": "← Alle Fachartikel", "role": "Mitgründer, Knowledge Retention Solutions",
+        "back": "← Alle Fachartikel",
         "origin": 'Zuerst erschienen auf <a href="{url}" target="_blank" rel="noopener">LinkedIn</a> (Englisch). Für die Website übersetzt.',
-        "bio": "Mitgründer von Knowledge Retention Solutions. Baut mit seinem Team Wissensbasen aus Interviews, Dokumenten und Meetings, die Menschen und KI-Assistenten im Unternehmen nutzen können.",
         "cta_title": "Fragen zu einem Thema?", "cta_sub": "Schreiben Sie uns eine kurze E-Mail. Wir melden uns direkt bei Ihnen.",
         "imprint": ("impressum.html", "Impressum"), "privacy": ("datenschutz.html", "Datenschutz"),
         "list_desc": "Fachartikel von Knowledge Retention Solutions zu Erfahrungswissen, Interviews, Meeting-Transkripten und Wissensbasen für Menschen und KI.",
@@ -45,11 +44,10 @@ UI = {
         "nav_articles": "Articles", "contact": "Contact", "contact_anchor": "#contact",
         "claim": "Capture Knowledge. Scale Expertise.", "menu": "Open menu", "nav_label": "Main navigation",
         "eyebrow": "Articles", "head_title": "Insights from practice",
-        "head_sub": "What we learn about experience-based knowledge from projects, interviews and our own meetings. The articles first appeared on LinkedIn.",
+        "head_sub": "What we learn about experience-based knowledge from projects, interviews and our own meetings. Most articles first appeared on LinkedIn.",
         "list_title": "Articles", "tag": "Article", "more": "Read more →", "minutes": "min read",
-        "back": "← All articles", "role": "Co-founder, Knowledge Retention Solutions",
+        "back": "← All articles",
         "origin": 'Originally published on <a href="{url}" target="_blank" rel="noopener">LinkedIn</a>.',
-        "bio": "Co-founder of Knowledge Retention Solutions. Builds knowledge bases from interviews, documents and meetings that people and AI assistants across a company can use.",
         "cta_title": "Questions about a topic?", "cta_sub": "Send us a short email. We will get back to you directly.",
         "imprint": ("en/imprint.html", "Imprint"), "privacy": ("en/privacy.html", "Privacy Policy"),
         "list_desc": "Articles by Knowledge Retention Solutions on experience-based knowledge, interviews, meeting transcripts and knowledge bases for people and AI.",
@@ -129,8 +127,36 @@ def date_label(iso: str, lang: str) -> str:
     return f"{day}. {name} {year}" if lang == "de" else f"{day} {name} {year}"
 
 
-AUTHOR = {"@type": "Person", "@id": SITE + "#eugen-neu", "name": "Dr. Eugen Neu",
-          "url": "https://www.linkedin.com/in/eugen-neu/", "sameAs": ["https://www.linkedin.com/in/eugen-neu/"]}
+AUTHORS = {
+    "eugen": {
+        "id": "eugen-neu", "name": "Dr. Eugen Neu", "photo": "images/team-eugen.jpg",
+        "linkedin": "https://www.linkedin.com/in/eugen-neu/",
+        "role": {"de": "Mitgründer, Knowledge Retention Solutions", "en": "Co-founder, Knowledge Retention Solutions"},
+        "bio": {
+            "de": "Mitgründer von Knowledge Retention Solutions. Baut mit seinem Team Wissensbasen aus Interviews, Dokumenten und Meetings, die Menschen und KI-Assistenten im Unternehmen nutzen können.",
+            "en": "Co-founder of Knowledge Retention Solutions. Builds knowledge bases from interviews, documents and meetings that people and AI assistants across a company can use.",
+        },
+    },
+    "marco": {
+        "id": "marco-karber", "name": "Marco Karber", "photo": "images/team-marco.jpg",
+        "linkedin": "https://www.linkedin.com/in/marco-karber-a73207148/",
+        "role": {"de": "Mitgründer und Geschäftsführer, Knowledge Retention Solutions",
+                 "en": "Co-founder and Managing Director, Knowledge Retention Solutions"},
+        "bio": {
+            "de": "Mitgründer und Geschäftsführer von Knowledge Retention Solutions. Ingenieur und Betriebswirt, Mitgründer eines Unternehmens im Anlagenbau.",
+            "en": "Co-founder and Managing Director of Knowledge Retention Solutions. Engineer and business economist, co-founder of a plant engineering company.",
+        },
+    },
+}
+
+
+def author_of(a: "Article") -> dict:
+    return AUTHORS[a.meta.get("author", "eugen")]
+
+
+def author_ld(person: dict) -> dict:
+    return {"@type": "Person", "@id": SITE + "#" + person["id"], "name": person["name"],
+            "url": person["linkedin"], "sameAs": [person["linkedin"]]}
 PUBLISHER = {"@type": "Organization", "@id": SITE + "#organization", "name": "Knowledge Retention Solutions GmbH",
              "url": SITE, "logo": SITE + "images/krs-logo.svg"}
 LOCALE = {"de": "de-DE", "en": "en"}
@@ -261,6 +287,8 @@ def article_page(a: Article, twin: Article) -> str:
     ui = UI[a.lang]
     prefix = "../" * a.path.count("/")
     m = a.meta
+    person = author_of(a)
+    origin = f'        <p class="origin-note">{ui["origin"].format(url=m["linkedin"])}</p>\n' if m.get("linkedin") else ""
     cover = (f'        <figure class="article__cover"><img src="{prefix}{m["cover"]}" alt="{html.escape(m["cover_alt"])}"></figure>\n'
              if m.get("cover") else "")
     body = f"""    <article class="article">
@@ -270,21 +298,20 @@ def article_page(a: Article, twin: Article) -> str:
         <h1 class="article__title">{m['title']}</h1>
         <p class="article__lead">{m['description']}</p>
         <div class="byline">
-          <img class="byline__photo" src="{prefix}images/team-eugen.jpg" alt="Dr. Eugen Neu">
+          <img class="byline__photo" src="{prefix}{person['photo']}" alt="{person['name']}">
           <div>
-            <div class="byline__name">Dr. Eugen Neu</div>
-            <div class="byline__meta">{ui['role']} · {date_label(m['date'], a.lang)} · {a.minutes} {ui['minutes']}</div>
+            <div class="byline__name">{person['name']}</div>
+            <div class="byline__meta">{person['role'][a.lang]} · {date_label(m['date'], a.lang)} · {a.minutes} {ui['minutes']}</div>
           </div>
         </div>
-        <p class="origin-note">{ui['origin'].format(url=m['linkedin'])}</p>
-{cover}        <div class="prose">
+{origin}{cover}        <div class="prose">
 {render_body(a.body, prefix)}
         </div>
         <aside class="author-box">
-          <img src="{prefix}images/team-eugen.jpg" alt="Dr. Eugen Neu">
+          <img src="{prefix}{person['photo']}" alt="{person['name']}">
           <div>
-            <p class="author-box__name">Dr. Eugen Neu</p>
-            <p class="author-box__bio">{ui['bio']}</p>
+            <p class="author-box__name">{person['name']}</p>
+            <p class="author-box__bio">{person['bio'][a.lang]}</p>
           </div>
         </aside>
         <a class="article__back" href="{prefix}{ui['base']}">{ui['back']}</a>
@@ -295,9 +322,11 @@ def article_page(a: Article, twin: Article) -> str:
         "@context": "https://schema.org", "@type": "BlogPosting",
         "headline": m["title"], "description": m["description"], "inLanguage": LOCALE[a.lang],
         "datePublished": m["date"], "url": SITE + a.path, "mainEntityOfPage": SITE + a.path,
-        "author": AUTHOR, "publisher": PUBLISHER, "isBasedOn": m["linkedin"],
+        "author": author_ld(person), "publisher": PUBLISHER,
         "wordCount": len(re.findall(r"\w+", a.body)),
     }
+    if m.get("linkedin"):
+        data["isBasedOn"] = m["linkedin"]
     if m.get("cover"):
         data["image"] = SITE + m["cover"]
     return page(a.lang, prefix, f"{m['title']} | KRS", m["description"], a.path, twin.path, body,
@@ -314,7 +343,7 @@ def list_page(lang: str, articles: list[Article]) -> str:
           <a class="article-card" href="{m['slug']}/">
             {media(a, prefix)}
             <div>
-              <div class="article-card__meta"><span class="tag">{ui['tag']}</span><span>{date_label(m['date'], lang)}</span><span>{a.minutes} {ui['minutes']}</span><span>Dr. Eugen Neu</span></div>
+              <div class="article-card__meta"><span class="tag">{ui['tag']}</span><span>{date_label(m['date'], lang)}</span><span>{a.minutes} {ui['minutes']}</span><span>{author_of(a)['name']}</span></div>
               <h2 class="article-card__title">{m['title']}</h2>
               <p class="article-card__teaser">{m['description']}</p>
               <span class="article-card__more">{ui['more']}</span>
@@ -339,7 +368,7 @@ def list_page(lang: str, articles: list[Article]) -> str:
         "@context": "https://schema.org", "@type": "Blog", "name": ui["list_title"] + " | KRS",
         "description": ui["list_desc"], "url": SITE + ui["base"], "inLanguage": LOCALE[lang], "publisher": PUBLISHER,
         "blogPost": [{"@type": "BlogPosting", "headline": a.meta["title"], "url": SITE + a.path,
-                      "datePublished": a.meta["date"], "author": {"@id": AUTHOR["@id"], "name": AUTHOR["name"]}}
+                      "datePublished": a.meta["date"], "author": {"@id": SITE + "#" + author_of(a)["id"], "name": author_of(a)["name"]}}
                      for a in articles],
     }
     return page(lang, prefix, f"{ui['list_title']} | KRS – Knowledge Retention Solutions", ui["list_desc"],

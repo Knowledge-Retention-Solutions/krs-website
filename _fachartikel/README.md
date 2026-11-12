@@ -6,8 +6,9 @@ Ordner mit Unterstrich veröffentlicht GitHub Pages nicht.
 ## Neuer Artikel
 
 1. Je Sprache eine Datei anlegen: `<id>.de.md` und `<id>.en.md` (gleiche `id`).
-2. Kopfdaten: `id`, `lang`, `slug`, `title`, `description`, `date` (JJJJ-MM-TT), `topic`, `linkedin`,
-   dazu `cover` und `cover_alt` oder, ohne Titelbild, `card_text`.
+2. Kopfdaten: `id`, `lang`, `slug`, `title`, `description`, `date` (JJJJ-MM-TT), `topic`,
+   dazu `cover` und `cover_alt` oder, ohne Titelbild, `card_text`. Optional: `author` (`eugen` oder `marco`,
+   ohne Angabe `eugen`; Profile in `AUTHORS` im Skript) und `linkedin` (URL des Originals; ohne Angabe kein Herkunftshinweis).
 3. Text: Absätze durch Leerzeilen trennen. `## ` für Zwischenüberschriften, `> ` für Zitate,
    `[Text](URL)` für Links. Abbildung: erste Zeile `![Alt-Text](images/...png)`, folgende Zeilen sind die Bildunterschrift.
 4. Bilder unter `images/fachartikel/<id>/` ablegen.
