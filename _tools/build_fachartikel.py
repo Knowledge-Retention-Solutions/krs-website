@@ -4,11 +4,13 @@
 Each source file has a small frontmatter block and a body in a Markdown subset:
 '## ' headings, '> ' quotes, image paragraphs (first line '![alt](path)', the
 remaining lines are the caption), [text](url) links and **bold**.
+Also writes sitemap.xml and llms.txt for the whole site.
 Run from the website root:  python3 _tools/build_fachartikel.py
 """
 from __future__ import annotations
 
 import html
+import json
 import math
 import re
 from dataclasses import dataclass
@@ -127,8 +129,40 @@ def date_label(iso: str, lang: str) -> str:
     return f"{day}. {name} {year}" if lang == "de" else f"{day} {name} {year}"
 
 
+AUTHOR = {"@type": "Person", "@id": SITE + "#eugen-neu", "name": "Dr. Eugen Neu",
+          "url": "https://www.linkedin.com/in/eugen-neu/", "sameAs": ["https://www.linkedin.com/in/eugen-neu/"]}
+PUBLISHER = {"@type": "Organization", "@id": SITE + "#organization", "name": "Knowledge Retention Solutions GmbH",
+             "url": SITE, "logo": SITE + "images/krs-logo.svg"}
+LOCALE = {"de": "de-DE", "en": "en"}
+
+# Static pages for the sitemap: (DE path, EN path or None for pages that exist in German only)
+STATIC_PAIRS: list[tuple[str, str | None]] = [
+    ("", "en/"), ("sofort-sicherung/", None),
+    ("impressum.html", "en/imprint.html"), ("datenschutz.html", "en/privacy.html"),
+]
+
+LLMS_HEAD = """# Knowledge Retention Solutions
+
+> Knowledge Retention Solutions GmbH (KRS) aus Aachen sichert Erfahrungswissen von Experten systematisch durch Interviews und KI, bevor es mit der Rente verschwindet, und macht es in Wissensbasen für Teams und KI-Assistenten nutzbar. Claim: „Wissen sichern. Wissen skalieren.“
+
+Das Angebot heißt Corporate Memory und hat vier Stufen: vom Wissen eines einzelnen Experten (Sofort-Sicherung zum Festpreis) über Team und Abteilung bis zum ganzen Unternehmen. Im Betrieb liegt die Wissensbasis in der Umgebung des Kunden, etwa Microsoft 365.
+
+Geschäftsführer: Marco Karber und Dr. Eugen Neu. Kontakt: info@krs-gmbh.de. Die Website ist zweisprachig (Deutsch und Englisch).
+
+## Website
+- [Startseite (Deutsch)]({site}): Corporate Memory, Angebote in vier Stufen, Stimmen und Team
+- [Sofort-Sicherung]({site}sofort-sicherung/): Einstieg zum Festpreis von 10.390 Euro netto: Tiefeninterviews mit einem Experten zu einem Fachgebiet, Übergabe als Wissensbasis nach rund vier Wochen
+- [Homepage (English)]({site}en/): offering, process, voices and team
+- [Impressum]({site}impressum.html): Firmenangaben und Registereintrag
+"""
+
+
+def jsonld(data: dict) -> str:
+    return '  <script type="application/ld+json">' + json.dumps(data, ensure_ascii=False) + "</script>\n"
+
+
 def page(lang: str, prefix: str, title: str, desc: str, path: str, alt_path: str, body: str,
-         og_type: str = "website", image: str | None = None, active_list: bool = False) -> str:
+         og_type: str = "website", image: str | None = None, structured: str = "") -> str:
     ui = UI[lang]
     other = "en" if lang == "de" else "de"
     paths = {lang: path, other: alt_path}
@@ -159,7 +193,7 @@ def page(lang: str, prefix: str, title: str, desc: str, path: str, alt_path: str
   <link rel="icon" type="image/svg+xml" href="{prefix}images/krs-logo.svg">
   <link rel="stylesheet" href="{prefix}css/redesign.css">
   <link rel="stylesheet" href="{prefix}css/blog.css">
-</head>
+{structured}</head>
 <body>
 
   <nav class="nav" id="nav" aria-label="{ui['nav_label']}">
@@ -257,8 +291,17 @@ def article_page(a: Article, twin: Article) -> str:
       </div>
     </article>
 """
+    data = {
+        "@context": "https://schema.org", "@type": "BlogPosting",
+        "headline": m["title"], "description": m["description"], "inLanguage": LOCALE[a.lang],
+        "datePublished": m["date"], "url": SITE + a.path, "mainEntityOfPage": SITE + a.path,
+        "author": AUTHOR, "publisher": PUBLISHER, "isBasedOn": m["linkedin"],
+        "wordCount": len(re.findall(r"\w+", a.body)),
+    }
+    if m.get("cover"):
+        data["image"] = SITE + m["cover"]
     return page(a.lang, prefix, f"{m['title']} | KRS", m["description"], a.path, twin.path, body,
-                og_type="article", image=m.get("cover"))
+                og_type="article", image=m.get("cover"), structured=jsonld(data))
 
 
 def list_page(lang: str, articles: list[Article]) -> str:
@@ -292,8 +335,42 @@ def list_page(lang: str, articles: list[Article]) -> str:
     </div>
 """
     other = "en" if lang == "de" else "de"
+    data = {
+        "@context": "https://schema.org", "@type": "Blog", "name": ui["list_title"] + " | KRS",
+        "description": ui["list_desc"], "url": SITE + ui["base"], "inLanguage": LOCALE[lang], "publisher": PUBLISHER,
+        "blogPost": [{"@type": "BlogPosting", "headline": a.meta["title"], "url": SITE + a.path,
+                      "datePublished": a.meta["date"], "author": {"@id": AUTHOR["@id"], "name": AUTHOR["name"]}}
+                     for a in articles],
+    }
     return page(lang, prefix, f"{ui['list_title']} | KRS – Knowledge Retention Solutions", ui["list_desc"],
-                ui["base"], UI[other]["base"], body)
+                ui["base"], UI[other]["base"], body, structured=jsonld(data))
+
+
+def sitemap(pairs: list[tuple[str, str | None, str | None]]) -> str:
+    """pairs: (DE path, EN path or None, lastmod or None); each path gets an entry with its language alternates."""
+    entries = []
+    for de, en, lastmod in pairs:
+        alternates = f'    <xhtml:link rel="alternate" hreflang="de" href="{SITE}{de}"/>\n'
+        if en is not None:
+            alternates += f'    <xhtml:link rel="alternate" hreflang="en" href="{SITE}{en}"/>\n'
+        alternates += f'    <xhtml:link rel="alternate" hreflang="x-default" href="{SITE}{de}"/>\n'
+        mod = f"    <lastmod>{lastmod}</lastmod>\n" if lastmod else ""
+        for loc in (de, en):
+            if loc is None:
+                continue
+            entries.append(f"  <url>\n    <loc>{SITE}{loc}</loc>\n{mod}{alternates}  </url>")
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
+            + "\n".join(entries) + "\n</urlset>\n")
+
+
+def llms_txt(de_items: list[Article], en_items: list[Article]) -> str:
+    lines = [LLMS_HEAD.format(site=SITE).rstrip(), "", "## Fachartikel (Deutsch)",
+             f"- [Übersicht]({SITE}{UI['de']['base']}): alle Fachartikel"]
+    lines += [f"- [{a.meta['title']}]({SITE}{a.path}): {a.meta['description']}" for a in de_items]
+    lines += ["", "## Articles (English)", f"- [Overview]({SITE}{UI['en']['base']}): all articles"]
+    lines += [f"- [{a.meta['title']}]({SITE}{a.path}): {a.meta['description']}" for a in en_items]
+    return "\n".join(lines) + "\n"
 
 
 def main() -> None:
@@ -301,9 +378,11 @@ def main() -> None:
     by_id: dict[str, dict[str, Article]] = {}
     for a in articles:
         by_id.setdefault(a.meta["id"], {})[a.lang] = a
+    lists: dict[str, list[Article]] = {}
     for lang in ("de", "en"):
         twin_lang = "en" if lang == "de" else "de"
         items = sorted((p[lang] for p in by_id.values()), key=lambda a: a.meta["date"], reverse=True)
+        lists[lang] = items
         for a in items:
             out = ROOT / a.path / "index.html"
             out.parent.mkdir(parents=True, exist_ok=True)
@@ -311,7 +390,14 @@ def main() -> None:
         listing = ROOT / UI[lang]["base"] / "index.html"
         listing.parent.mkdir(parents=True, exist_ok=True)
         listing.write_text(list_page(lang, items), encoding="utf-8")
-    print(f"built {len(articles)} article pages and 2 overviews")
+    newest = lists["de"][0].meta["date"] if lists["de"] else None
+    pairs: list[tuple[str, str | None, str | None]] = [(de, en, None) for de, en in STATIC_PAIRS]
+    pairs.append((UI["de"]["base"], UI["en"]["base"], newest))
+    pairs += [(p["de"].path, p["en"].path, p["de"].meta["date"])
+              for p in sorted(by_id.values(), key=lambda p: p["de"].meta["date"], reverse=True)]
+    (ROOT / "sitemap.xml").write_text(sitemap(pairs), encoding="utf-8")
+    (ROOT / "llms.txt").write_text(llms_txt(lists["de"], lists["en"]), encoding="utf-8")
+    print(f"built {len(articles)} article pages, 2 overviews, sitemap.xml ({sum(1 + (en is not None) for _, en, _ in pairs)} URLs) and llms.txt")
 
 
 if __name__ == "__main__":
