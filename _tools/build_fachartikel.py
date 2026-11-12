@@ -24,7 +24,7 @@ MONTHS = {
 UI = {
     "de": {
         "base": "fachartikel/", "home": "", "lang_label": "DE",
-        "nav": [("#loesung", "Lösung"), ("#ablauf", "Ablauf"), ("#stimmen", "Stimmen"), ("#team", "Team")],
+        "nav": [("#loesung", "Corporate Memory"), ("#angebote", "Angebote"), ("#stimmen", "Stimmen"), ("#team", "Team")],
         "nav_articles": "Fachartikel", "contact": "Kontakt", "contact_anchor": "#kontakt",
         "claim": "Wissen sichern. Wissen skalieren.", "menu": "Menü öffnen", "nav_label": "Hauptnavigation",
         "eyebrow": "Fachartikel", "head_title": "Wissen aus der Praxis",
