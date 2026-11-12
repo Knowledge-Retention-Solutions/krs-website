@@ -13,7 +13,13 @@
     var rings = Array.prototype.slice.call(kr.querySelectorAll('.kr__ring'));
     var share = kr.querySelector('.kr-share');
     var shareBar = share ? share.querySelector('.kr-share__bar') : null;
-    var shareText = {
+    var isEnglish = (document.documentElement.lang || '').toLowerCase().indexOf('en') === 0;
+    var shareText = isEnglish ? {
+      1: 'Schematic: in tier 1, KRS captures the knowledge.',
+      2: 'Schematic: in tier 2, KRS and your team capture the knowledge, KRS the larger part.',
+      3: 'Schematic: in tier 3, your teams capture the larger part of the knowledge.',
+      4: 'Schematic: in tier 4, your company captures most of the knowledge itself.'
+    } : {
       1: 'Schematisch: Bei Stufe 1 erfasst KRS das Wissen.',
       2: 'Schematisch: Bei Stufe 2 erfassen KRS und Ihr Team das Wissen, KRS den größeren Teil.',
       3: 'Schematisch: Bei Stufe 3 erfassen Ihre Teams den größeren Teil des Wissens.',

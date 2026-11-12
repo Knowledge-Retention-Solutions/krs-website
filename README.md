@@ -86,6 +86,18 @@ Farben und Typografie basieren auf dem [Brand Book](/operations/knowledge/brandi
 2. Source: Branch `main`, Folder `/tech/website`
 3. Custom Domain einrichten
 
+## Versionsnummer fuer CSS und JS
+
+GitHub Pages laesst Browser alle Dateien 10 Minuten zwischenspeichern. Nach einem Update kann ein
+Besucher deshalb die neue Seite mit der alten Stil-Datei sehen. Dagegen tragen die Verweise auf
+`css/` und `js/` eine Versionsnummer, zum Beispiel `css/redesign.css?v=2026-11-12`.
+
+Bei jeder Aenderung an `css/` oder `js/` die Nummer ueberall hochsetzen:
+
+1. In den handgeschriebenen Seiten per Suchen und Ersetzen (`index.html`, `sofort-sicherung/`,
+   `en/index.html`, `en/rapid-capture/`, `404.html`).
+2. In `_tools/build_fachartikel.py` die Konstante `ASSET_VERSION`, danach das Skript laufen lassen.
+
 ## Lokale Entwicklung
 
 Die Website benoetigt keine Build-Schritte. Einfach `index.html` im Browser oeffnen oder einen lokalen Server starten:

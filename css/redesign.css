@@ -1224,7 +1224,7 @@ a { color: var(--krs-nachtblau); }
 .compare td.is-featured { background: rgba(194, 123, 45, 0.07); }
 .compare__yes { width: 24px; height: 24px; color: var(--krs-signal); vertical-align: middle; stroke-width: 2.25; }
 .compare__no { display: inline-block; width: 14px; height: 2px; background: var(--krs-muted-2); vertical-align: middle; }
-#angebote .offers__foot { margin-top: var(--space-xl); }
+#angebote .offers__foot, #offers .offers__foot { margin-top: var(--space-xl); }
 #angebote .more { margin-top: var(--space-lg); }
 
 @media (max-width: 1180px) {

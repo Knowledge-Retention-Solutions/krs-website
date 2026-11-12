@@ -49,7 +49,10 @@
       root.classList.toggle('is-paused', paused);
       root.classList.toggle('is-user-paused', reasons.user);
       if (toggle) {
-        toggle.setAttribute('aria-label', reasons.user ? 'Erklärstück abspielen' : 'Erklärstück anhalten');
+        var en = (document.documentElement.lang || '').toLowerCase().indexOf('en') === 0;
+        toggle.setAttribute('aria-label', en
+          ? (reasons.user ? 'Play explainer' : 'Pause explainer')
+          : (reasons.user ? 'Erklärstück abspielen' : 'Erklärstück anhalten'));
       }
     }
 

@@ -15,6 +15,13 @@
   <url>
     <loc>https://www.knowledge-retention-solutions.de/sofort-sicherung/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.knowledge-retention-solutions.de/sofort-sicherung/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.knowledge-retention-solutions.de/en/rapid-capture/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.knowledge-retention-solutions.de/sofort-sicherung/"/>
+  </url>
+  <url>
+    <loc>https://www.knowledge-retention-solutions.de/en/rapid-capture/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.knowledge-retention-solutions.de/sofort-sicherung/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.knowledge-retention-solutions.de/en/rapid-capture/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.knowledge-retention-solutions.de/sofort-sicherung/"/>
   </url>
   <url>
