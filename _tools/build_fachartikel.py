@@ -135,17 +135,23 @@ PUBLISHER = {"@type": "Organization", "@id": SITE + "#organization", "name": "Kn
              "url": SITE, "logo": SITE + "images/krs-logo.svg"}
 LOCALE = {"de": "de-DE", "en": "en"}
 
-# Static pages for the sitemap: (DE path, EN path)
-STATIC_PAIRS = [("", "en/"), ("impressum.html", "en/imprint.html"), ("datenschutz.html", "en/privacy.html")]
+# Static pages for the sitemap: (DE path, EN path or None for pages that exist in German only)
+STATIC_PAIRS: list[tuple[str, str | None]] = [
+    ("", "en/"), ("sofort-sicherung/", None),
+    ("impressum.html", "en/imprint.html"), ("datenschutz.html", "en/privacy.html"),
+]
 
 LLMS_HEAD = """# Knowledge Retention Solutions
 
 > Knowledge Retention Solutions GmbH (KRS) aus Aachen sichert Erfahrungswissen von Experten systematisch durch Interviews und KI, bevor es mit der Rente verschwindet, und macht es in Wissensbasen für Teams und KI-Assistenten nutzbar. Claim: „Wissen sichern. Wissen skalieren.“
 
+Das Angebot heißt Corporate Memory und hat vier Stufen: vom Wissen eines einzelnen Experten (Sofort-Sicherung zum Festpreis) über Team und Abteilung bis zum ganzen Unternehmen. Im Betrieb liegt die Wissensbasis in der Umgebung des Kunden, etwa Microsoft 365.
+
 Geschäftsführer: Marco Karber und Dr. Eugen Neu. Kontakt: info@krs-gmbh.de. Die Website ist zweisprachig (Deutsch und Englisch).
 
 ## Website
-- [Startseite (Deutsch)]({site}): Angebot, Ablauf, Stimmen und Team
+- [Startseite (Deutsch)]({site}): Corporate Memory, Angebote in vier Stufen, Stimmen und Team
+- [Sofort-Sicherung]({site}sofort-sicherung/): Einstieg zum Festpreis von 10.390 Euro netto: Tiefeninterviews mit einem Experten zu einem Fachgebiet, Übergabe als Wissensbasis nach rund vier Wochen
 - [Homepage (English)]({site}en/): offering, process, voices and team
 - [Impressum]({site}impressum.html): Firmenangaben und Registereintrag
 """
@@ -340,15 +346,18 @@ def list_page(lang: str, articles: list[Article]) -> str:
                 ui["base"], UI[other]["base"], body, structured=jsonld(data))
 
 
-def sitemap(pairs: list[tuple[str, str, str | None]]) -> str:
-    """pairs: (DE path, EN path, lastmod or None); each path gets an entry with both language alternates."""
+def sitemap(pairs: list[tuple[str, str | None, str | None]]) -> str:
+    """pairs: (DE path, EN path or None, lastmod or None); each path gets an entry with its language alternates."""
     entries = []
     for de, en, lastmod in pairs:
-        alternates = (f'    <xhtml:link rel="alternate" hreflang="de" href="{SITE}{de}"/>\n'
-                      f'    <xhtml:link rel="alternate" hreflang="en" href="{SITE}{en}"/>\n'
-                      f'    <xhtml:link rel="alternate" hreflang="x-default" href="{SITE}{de}"/>\n')
+        alternates = f'    <xhtml:link rel="alternate" hreflang="de" href="{SITE}{de}"/>\n'
+        if en is not None:
+            alternates += f'    <xhtml:link rel="alternate" hreflang="en" href="{SITE}{en}"/>\n'
+        alternates += f'    <xhtml:link rel="alternate" hreflang="x-default" href="{SITE}{de}"/>\n'
         mod = f"    <lastmod>{lastmod}</lastmod>\n" if lastmod else ""
         for loc in (de, en):
+            if loc is None:
+                continue
             entries.append(f"  <url>\n    <loc>{SITE}{loc}</loc>\n{mod}{alternates}  </url>")
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
@@ -382,13 +391,13 @@ def main() -> None:
         listing.parent.mkdir(parents=True, exist_ok=True)
         listing.write_text(list_page(lang, items), encoding="utf-8")
     newest = lists["de"][0].meta["date"] if lists["de"] else None
-    pairs: list[tuple[str, str, str | None]] = [(de, en, None) for de, en in STATIC_PAIRS]
+    pairs: list[tuple[str, str | None, str | None]] = [(de, en, None) for de, en in STATIC_PAIRS]
     pairs.append((UI["de"]["base"], UI["en"]["base"], newest))
     pairs += [(p["de"].path, p["en"].path, p["de"].meta["date"])
               for p in sorted(by_id.values(), key=lambda p: p["de"].meta["date"], reverse=True)]
     (ROOT / "sitemap.xml").write_text(sitemap(pairs), encoding="utf-8")
     (ROOT / "llms.txt").write_text(llms_txt(lists["de"], lists["en"]), encoding="utf-8")
-    print(f"built {len(articles)} article pages, 2 overviews, sitemap.xml ({2 * len(pairs)} URLs) and llms.txt")
+    print(f"built {len(articles)} article pages, 2 overviews, sitemap.xml ({sum(1 + (en is not None) for _, en, _ in pairs)} URLs) and llms.txt")
 
 
 if __name__ == "__main__":

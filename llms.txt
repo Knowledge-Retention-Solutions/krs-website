@@ -2,10 +2,13 @@
 
 > Knowledge Retention Solutions GmbH (KRS) aus Aachen sichert Erfahrungswissen von Experten systematisch durch Interviews und KI, bevor es mit der Rente verschwindet, und macht es in Wissensbasen für Teams und KI-Assistenten nutzbar. Claim: „Wissen sichern. Wissen skalieren.“
 
+Das Angebot heißt Corporate Memory und hat vier Stufen: vom Wissen eines einzelnen Experten (Sofort-Sicherung zum Festpreis) über Team und Abteilung bis zum ganzen Unternehmen. Im Betrieb liegt die Wissensbasis in der Umgebung des Kunden, etwa Microsoft 365.
+
 Geschäftsführer: Marco Karber und Dr. Eugen Neu. Kontakt: info@krs-gmbh.de. Die Website ist zweisprachig (Deutsch und Englisch).
 
 ## Website
-- [Startseite (Deutsch)](https://www.knowledge-retention-solutions.de/): Angebot, Ablauf, Stimmen und Team
+- [Startseite (Deutsch)](https://www.knowledge-retention-solutions.de/): Corporate Memory, Angebote in vier Stufen, Stimmen und Team
+- [Sofort-Sicherung](https://www.knowledge-retention-solutions.de/sofort-sicherung/): Einstieg zum Festpreis von 10.390 Euro netto: Tiefeninterviews mit einem Experten zu einem Fachgebiet, Übergabe als Wissensbasis nach rund vier Wochen
 - [Homepage (English)](https://www.knowledge-retention-solutions.de/en/): offering, process, voices and team
 - [Impressum](https://www.knowledge-retention-solutions.de/impressum.html): Firmenangaben und Registereintrag
 
