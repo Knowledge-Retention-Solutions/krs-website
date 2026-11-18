@@ -2,8 +2,10 @@
 """Build the article pages (DE: /fachartikel/, EN: /en/articles/) from _fachartikel/*.md.
 
 Each source file has a small frontmatter block and a body in a Markdown subset:
-'## ' headings, '> ' quotes, image paragraphs (first line '![alt](path)', the
-remaining lines are the caption), [text](url) links and **bold**.
+'## ' and '### ' headings, '> ' quotes, '- ' lists, tables with a header row,
+image paragraphs (first line '![alt](path)', the remaining lines are the caption;
+'[![alt](path)](large.png)' makes the image open large when clicked),
+[text](url) links and **bold**.
 Also writes sitemap.xml and llms.txt for the whole site.
 Run from the website root:  python3 _tools/build_fachartikel.py
 """
@@ -20,7 +22,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "_fachartikel"
 SITE = "https://www.knowledge-retention-solutions.de/"
 # Bump on every change to css/ or js/, here and in the hand-written pages (see README).
-ASSET_VERSION = "2026-11-12"
+ASSET_VERSION = "2026-11-18"
 MONTHS = {
     "de": ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
     "en": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
@@ -105,6 +107,26 @@ def inline(text: str, prefix: str) -> str:
     return re.sub(r"\[([^\]]+)\]\(([^)]+)\)", link, out)
 
 
+def render_list(lines: list[str], prefix: str) -> str:
+    items: list[str] = []
+    for line in lines:
+        if line.startswith("- "):
+            items.append(line[2:])
+        else:
+            items[-1] += " " + line.strip()
+    return "<ul>\n" + "\n".join(f"  <li>{inline(item, prefix)}</li>" for item in items) + "\n</ul>"
+
+
+def render_table(lines: list[str], prefix: str) -> str:
+    def cells(line: str) -> list[str]:
+        return [cell.strip() for cell in line.strip().strip("|").split("|")]
+
+    head = "".join(f"<th>{inline(c, prefix)}</th>" for c in cells(lines[0]))
+    rows = "\n".join("    <tr>" + "".join(f"<td>{inline(c, prefix)}</td>" for c in cells(line)) + "</tr>"
+                     for line in lines[2:])
+    return f"<table>\n  <thead>\n    <tr>{head}</tr>\n  </thead>\n  <tbody>\n{rows}\n  </tbody>\n</table>"
+
+
 def render_body(body: str, prefix: str) -> str:
     blocks = []
     for block in re.split(r"\n\s*\n", body):
@@ -112,14 +134,22 @@ def render_body(body: str, prefix: str) -> str:
         first = lines[0]
         if first.startswith("## "):
             blocks.append(f"<h2>{inline(first[3:], prefix)}</h2>")
+        elif first.startswith("### "):
+            blocks.append(f"<h3>{inline(first[4:], prefix)}</h3>")
         elif first.startswith("> "):
             quote = " ".join(line[2:] for line in lines)
             blocks.append(f"<blockquote><p>{inline(quote, prefix)}</p></blockquote>")
-        elif m := re.match(r"!\[([^\]]*)\]\(([^)]+)\)$", first):
+        elif first.startswith("- "):
+            blocks.append(render_list(lines, prefix))
+        elif first.startswith("|") and len(lines) > 2 and re.fullmatch(r"\|?(\s*:?-+:?\s*\|)+\s*(:?-+:?)?\s*", lines[1].strip()):
+            blocks.append(render_table(lines, prefix))
+        elif m := re.match(r"(\[)?!\[([^\]]*)\]\(([^)]+)\)(?(1)\]\(([^)]+)\))$", first):
             caption = inline(" ".join(lines[1:]), prefix)
-            alt = html.escape(m.group(1))
-            blocks.append(f'<figure>\n  <img src="{prefix}{m.group(2)}" alt="{alt}" loading="lazy">\n'
-                          f"  <figcaption>{caption}</figcaption>\n</figure>")
+            alt = html.escape(m.group(2))
+            img = f'<img src="{prefix}{m.group(3)}" alt="{alt}" loading="lazy">'
+            if m.group(4):
+                img = f'<a class="figure-zoom" href="{prefix}{m.group(4)}">{img}</a>'
+            blocks.append(f"<figure>\n  {img}\n  <figcaption>{caption}</figcaption>\n</figure>")
         else:
             blocks.append(f"<p>{inline(' '.join(lines), prefix)}</p>")
     return "\n".join(blocks)

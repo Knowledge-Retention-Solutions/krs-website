@@ -50,17 +50,31 @@
   </url>
   <url>
     <loc>https://www.knowledge-retention-solutions.de/fachartikel/</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.knowledge-retention-solutions.de/fachartikel/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.knowledge-retention-solutions.de/en/articles/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.knowledge-retention-solutions.de/fachartikel/"/>
   </url>
   <url>
     <loc>https://www.knowledge-retention-solutions.de/en/articles/</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.knowledge-retention-solutions.de/fachartikel/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.knowledge-retention-solutions.de/en/articles/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.knowledge-retention-solutions.de/fachartikel/"/>
+  </url>
+  <url>
+    <loc>https://www.knowledge-retention-solutions.de/fachartikel/corporate-memory-system-skalieren/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.knowledge-retention-solutions.de/fachartikel/corporate-memory-system-skalieren/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.knowledge-retention-solutions.de/en/articles/scaling-a-corporate-memory-system/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.knowledge-retention-solutions.de/fachartikel/corporate-memory-system-skalieren/"/>
+  </url>
+  <url>
+    <loc>https://www.knowledge-retention-solutions.de/en/articles/scaling-a-corporate-memory-system/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.knowledge-retention-solutions.de/fachartikel/corporate-memory-system-skalieren/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.knowledge-retention-solutions.de/en/articles/scaling-a-corporate-memory-system/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.knowledge-retention-solutions.de/fachartikel/corporate-memory-system-skalieren/"/>
   </url>
   <url>
     <loc>https://www.knowledge-retention-solutions.de/fachartikel/warum-wir-jedes-meeting-transkript-behalten/</loc>

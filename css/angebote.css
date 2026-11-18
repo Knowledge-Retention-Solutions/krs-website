@@ -92,6 +92,9 @@
 .kr__icon { width: 22px; height: 22px; margin-top: 1px; color: var(--krs-nachtblau); }
 .kr__lines .is-team .kr__icon { color: var(--krs-bernstein); }
 .kr__lbl { font-family: var(--font-mono); font-size: 14px; line-height: 1.65; color: var(--krs-muted); }
+.kr__more { margin: 16px 0 0; font-size: 16px; line-height: 1.45; color: var(--krs-muted); text-wrap: pretty; }
+.kr__more a { font-weight: 500; color: var(--krs-nachtblau); text-decoration-color: var(--krs-bernstein); text-underline-offset: 3px; }
+.kr__more a:hover { color: var(--krs-bernstein); }
 .kr__foot {
   display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 20px;
   margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--krs-line);
