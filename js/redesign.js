@@ -149,4 +149,43 @@
 
     go(0);
   }
+
+  /* ----- Abbildungen in Fachartikeln groß anzeigen ----- */
+  /* Ein Link mit class="figure-zoom" zeigt auf die Bilddatei; ohne JS oder <dialog> öffnet er sie direkt.
+     Die Bilder sind in doppelter Auflösung gerendert und erscheinen hier in halber Pixelbreite,
+     also in der Größe, für die ihre Beschriftungen gesetzt sind. Breitere Bilder lassen sich verschieben. */
+  var zoomLinks = document.querySelectorAll('a.figure-zoom');
+  if (zoomLinks.length && typeof HTMLDialogElement === 'function') {
+    var isDe = document.documentElement.lang === 'de';
+    var zoom = document.createElement('dialog');
+    zoom.className = 'zoom';
+    zoom.setAttribute('aria-label', isDe ? 'Vergrößerte Abbildung' : 'Enlarged figure');
+    zoom.innerHTML = '<button type="button" class="zoom__close" aria-label="' + (isDe ? 'Schließen' : 'Close') + '">' +
+      '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+      'stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
+      '<div class="zoom__stage"><img class="zoom__img" alt=""></div>';
+    document.body.appendChild(zoom);
+    var zoomImg = zoom.querySelector('.zoom__img');
+    var fit = function () {
+      if (zoomImg.naturalWidth) zoomImg.style.width = Math.round(zoomImg.naturalWidth / 2) + 'px';
+    };
+    zoomImg.addEventListener('load', fit);
+    zoomLinks.forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        zoomImg.alt = link.querySelector('img').alt;
+        zoomImg.src = link.href;
+        if (zoomImg.complete) fit();
+        document.documentElement.classList.add('zoom-open');
+        zoom.showModal();
+        zoom.querySelector('.zoom__stage').scrollTo(0, 0);
+      });
+    });
+    zoom.addEventListener('click', function (e) {
+      if (e.target === zoom || e.target.classList.contains('zoom__stage') || e.target.closest('.zoom__close')) zoom.close();
+    });
+    zoom.addEventListener('close', function () {
+      document.documentElement.classList.remove('zoom-open');
+    });
+  }
 })();
